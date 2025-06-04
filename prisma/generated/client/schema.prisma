@@ -1,0 +1,113 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Sirketler {
+  sirket_id      Int                  @id @default(autoincrement())
+  sirket_adi     String               @db.VarChar(255)
+  vergi_numarasi String               @db.VarChar(20)
+  araclar        Araclar[]
+  seferler       Seferler[]
+  fiyat_listesi  SirketFiyatListesi[]
+  cekler         SirketCekler[]
+
+  @@map("sirketler")
+}
+
+model Araclar {
+  arac_id        Int                  @id @default(autoincrement())
+  plaka          String               @db.VarChar(20)
+  sofor_adi      String               @db.VarChar(255)
+  vergi_numarasi String               @db.VarChar(20)
+  sirket_id      Int
+  sirket         Sirketler            @relation(fields: [sirket_id], references: [sirket_id])
+  seferler       Seferler[]
+  odemeler       AracOdemeKayitlari[]
+
+  @@map("araclar")
+}
+
+model Seferler {
+  sefer_id               Int       @id @default(autoincrement())
+  sira_no                Int
+  irsaliye_numarasi      String?   @db.VarChar(50)
+  irsaliye_tarihi        DateTime? @db.Date
+  kalkis_saati           DateTime  @db.Time()
+  varis_saati            DateTime  @db.Time()
+  cikis_yeri             String    @db.VarChar(255)
+  tahliye_edilen_firma   String    @db.VarChar(255)
+  tahliye_yeri           String    @db.VarChar(255)
+  tonaj_kg               Float
+  arac_tipi              String    @db.VarChar(50)
+  mt                     Float?
+  aciklama               String?   @db.Text
+  sirketten_alinan_ucret Float
+  sofore_odenen_ucret    Float
+  sirket_id              Int
+  arac_id                Int
+  ay                     Int? // 1-12 arası değer
+  donem                  Int? // 1-3 arası değer
+  sirket                 Sirketler @relation(fields: [sirket_id], references: [sirket_id])
+  arac                   Araclar   @relation(fields: [arac_id], references: [arac_id])
+
+  @@map("seferler")
+}
+
+model SirketFiyatListesi {
+  fiyat_listesi_id Int       @id @default(autoincrement())
+  sirket_id        Int
+  tahliye_yeri     String    @db.VarChar(255)
+  arac_tipi        String    @db.VarChar(50)
+  ucret            Float
+  sirket           Sirketler @relation(fields: [sirket_id], references: [sirket_id])
+
+  @@map("sirket_fiyat_listesi")
+}
+
+model SirketCekler {
+  cek_id            Int       @id @default(autoincrement())
+  sirket_id         Int
+  cek_tutari        Float
+  cek_alinma_tarihi DateTime  @db.Date
+  cek_odeme_tarihi  DateTime  @db.Date
+  durum             String    @db.VarChar(50) // VadesiBekleniyor, OdemeAlindi, Karsiliksiz, Iptal
+  aciklama          String?   @db.Text
+  kayit_tarihi      DateTime  @default(now())
+  sirket            Sirketler @relation(fields: [sirket_id], references: [sirket_id])
+
+  @@map("sirket_cekler")
+}
+
+model AracOdemeKayitlari {
+  odeme_id     Int      @id @default(autoincrement())
+  arac_id      Int
+  odeme_tutari Float
+  odeme_tarihi DateTime @db.Date
+  aciklama     String?  @db.Text
+  kayit_tarihi DateTime @default(now())
+  arac         Araclar  @relation(fields: [arac_id], references: [arac_id])
+
+  @@map("arac_odeme_kayitlari")
+}
+
+model YuklenenExcelDosyalar {
+  dosya_id       Int      @id @default(autoincrement())
+  dosya_adi      String   @db.VarChar(255)
+  dosya_yolu     String   @db.VarChar(255)
+  yukleme_tarihi DateTime @default(now())
+  aciklama       String?  @db.Text
+
+  @@map("yuklenen_excel_dosyalar")
+}

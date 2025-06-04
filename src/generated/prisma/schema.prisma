@@ -1,0 +1,123 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Sirketler {
+  sirket_id      Int                  @id @default(autoincrement())
+  sirket_adi     String
+  vergi_numarasi String               @unique
+  araclar        Araclar[]
+  seferler       Seferler[]
+  fiyat_listesi  SirketFiyatListesi[]
+  cekler         SirketCekler[]
+
+  @@map("sirketler")
+}
+
+model Araclar {
+  arac_id        Int                  @id @default(autoincrement())
+  plaka          String               @unique
+  sofor_adi      String
+  vergi_numarasi String
+  sirket_id      Int
+  sirket         Sirketler            @relation(fields: [sirket_id], references: [sirket_id])
+  seferler       Seferler[]
+  odemeler       AracOdemeKayitlari[]
+
+  @@map("araclar")
+}
+
+model Seferler {
+  sefer_id               Int       @id @default(autoincrement())
+  sira_no                Int
+  irsaliye_numarasi      String?
+  irsaliye_tarihi        DateTime?
+  kalkis_saati           DateTime
+  varis_saati            DateTime
+  cikis_yeri             String
+  tahliye_edilen_firma   String
+  tahliye_yeri           String
+  tonaj_kg               Float
+  arac_tipi              String
+  mt                     Float?
+  aciklama               String?
+  sirketten_alinan_ucret Float
+  sofore_odenen_ucret    Float
+  sirket_id              Int
+  arac_id                Int
+  sirket                 Sirketler @relation(fields: [sirket_id], references: [sirket_id])
+  arac                   Araclar   @relation(fields: [arac_id], references: [arac_id])
+
+  @@map("seferler")
+}
+
+model SirketFiyatListesi {
+  fiyat_listesi_id Int       @id @default(autoincrement())
+  sirket_id        Int
+  tahliye_yeri     String
+  arac_tipi        String
+  ucret            Float
+  sirket           Sirketler @relation(fields: [sirket_id], references: [sirket_id])
+
+  @@map("sirket_fiyat_listesi")
+}
+
+model SirketCekler {
+  cek_id            Int       @id @default(autoincrement())
+  sirket_id         Int
+  cek_tutari        Float
+  cek_alinma_tarihi DateTime
+  cek_odeme_tarihi  DateTime
+  durum             String // VadesiBekleniyor, OdemeAlindi, Karsiliksiz, Iptal
+  aciklama          String?
+  kayit_tarihi      DateTime  @default(now())
+  sirket            Sirketler @relation(fields: [sirket_id], references: [sirket_id])
+
+  @@map("sirket_cekler")
+}
+
+model AracOdemeKayitlari {
+  odeme_id     Int      @id @default(autoincrement())
+  arac_id      Int
+  odeme_tutari Float
+  odeme_tarihi DateTime
+  aciklama     String?
+  kayit_tarihi DateTime @default(now())
+  arac         Araclar  @relation(fields: [arac_id], references: [arac_id])
+
+  @@map("arac_odeme_kayitlari")
+}
+
+model YuklenenExcelDosyalar {
+  dosya_id       Int      @id @default(autoincrement())
+  dosya_adi      String
+  dosya_yolu     String
+  yukleme_tarihi DateTime @default(now())
+  aciklama       String?
+
+  @@map("yuklenen_excel_dosyalar")
+}
+
+model Cekler {
+  id               Int      @id @default(autoincrement())
+  cek_no           String   @unique
+  vade_tarihi      DateTime
+  tutar            Float
+  durum            String   @default("beklemede") // beklemede, tahsil_edildi, iade_edildi
+  aciklama         String?
+  olusturma_tarihi DateTime @default(now())
+
+  @@map("cekler")
+}

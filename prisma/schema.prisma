@@ -1,0 +1,125 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Sirketler {
+  sirket_id      Int                  @id @default(autoincrement())
+  sirket_adi     String               @db.VarChar(255)
+  vergi_numarasi String               @db.VarChar(20)
+  araclar        Araclar[]
+  seferler       Seferler[]
+  fiyat_listesi  SirketFiyatListesi[]
+
+  @@map("sirketler")
+}
+
+model Araclar {
+  arac_id        Int                  @id @default(autoincrement())
+  plaka          String               @db.VarChar(20)
+  sofor_adi      String               @db.VarChar(255)
+  vergi_numarasi String               @db.VarChar(20)
+  sirket_id      Int
+  odemeler       AracOdemeKayitlari[]
+  sirket         Sirketler            @relation(fields: [sirket_id], references: [sirket_id])
+  seferler       Seferler[]
+
+  @@map("araclar")
+}
+
+model Seferler {
+  sefer_id               Int       @id @default(autoincrement())
+  sira_no                Int
+  irsaliye_numarasi      String?   @db.VarChar(50)
+  irsaliye_tarihi        DateTime? @db.Date
+  kalkis_saati           DateTime? @db.Time(6)
+  varis_saati            DateTime? @db.Time(6)
+  cikis_yeri             String    @db.VarChar(255)
+  tahliye_edilen_firma   String    @db.VarChar(255)
+  tahliye_yeri           String    @db.VarChar(255)
+  tonaj_kg               String    @db.VarChar(50)
+  arac_tipi              String    @db.VarChar(50)
+  mt                     Float?
+  aciklama               String?
+  sirketten_alinan_ucret Float
+  sofore_odenen_ucret    Float
+  sirket_id              Int
+  arac_id                Int?
+  ay                     Int?
+  donem                  Int?
+  sofor_fatura_ucreti    Float?
+  arac                   Araclar?  @relation(fields: [arac_id], references: [arac_id])
+  sirket                 Sirketler @relation(fields: [sirket_id], references: [sirket_id])
+
+  @@map("seferler")
+}
+
+model SirketFiyatListesi {
+  fiyat_listesi_id Int       @id @default(autoincrement())
+  sirket_id        Int
+  tahliye_yeri     String    @db.VarChar(255)
+  arac_tipi        String    @db.VarChar(50)
+  ucret            Float
+  km               Float?
+  sofor_ucreti     Float?
+  sirket           Sirketler @relation(fields: [sirket_id], references: [sirket_id])
+
+  @@map("sirket_fiyat_listesi")
+}
+
+model AracMasrafTipleri {
+  masraf_tipi_id Int    @id @default(autoincrement())
+  tip_adi        String @db.VarChar(100)
+
+  @@map("arac_masraf_tipleri")
+}
+
+model AracOdemeKayitlari {
+  odeme_id       Int      @id @default(autoincrement())
+  arac_id        Int
+  odeme_tutari   Float
+  odeme_tarihi   DateTime @db.Date
+  aciklama       String?
+  kayit_tarihi   DateTime @default(now())
+  masraf_tipi_id Int?
+  arac           Araclar  @relation(fields: [arac_id], references: [arac_id])
+
+  @@map("arac_odeme_kayitlari")
+}
+
+model YuklenenExcelDosyalar {
+  dosya_id       Int      @id @default(autoincrement())
+  dosya_adi      String   @db.VarChar(255)
+  dosya_yolu     String   @db.VarChar(255)
+  yukleme_tarihi DateTime @default(now())
+  aciklama       String?
+
+  @@map("yuklenen_excel_dosyalar")
+}
+
+model Cekler {
+  id               Int       @id @default(autoincrement())
+  cek_no           String    @unique @db.VarChar(50)
+  vade_tarihi      DateTime  @db.Date
+  tutar            Float
+  durum            String    @default("beklemede") @db.VarChar(20)
+  aciklama         String?   @db.VarChar(500)
+  odenme_tarihi    DateTime? @db.Date
+  olusturma_tarihi DateTime  @default(now())
+
+  @@map("cekler")
+}
+
+model SoforOdemeler {
+  id          Int      @id @default(autoincrement())
+  sofor_adi   String   @db.VarChar(255)
+  tutar       Float
+  tarih       DateTime @default(now())
+  aciklama    String?  @db.VarChar(500)
+  
+  @@map("sofor_odemeler")
+}

@@ -1,0 +1,42 @@
+{
+  "Tahsin": {
+    "sefer_sayisi": 15,
+    "ham_gider": 191196,
+    "ham_gider_formatli": "₺191.196,00"
+  },
+  "Ali Kalkan": {
+    "sefer_sayisi": 10,
+    "ham_gider": 327325,
+    "ham_gider_formatli": "₺327.325,00"
+  },
+  "Bilal Kalkan": {
+    "sefer_sayisi": 16,
+    "ham_gider": 430006,
+    "ham_gider_formatli": "₺430.006,00"
+  },
+  "Mehmet Kalkan(Durdu)": {
+    "sefer_sayisi": 12,
+    "ham_gider": 359478,
+    "ham_gider_formatli": "₺359.478,00"
+  },
+  "Seyhan Kalkan": {
+    "sefer_sayisi": 14,
+    "ham_gider": 367851,
+    "ham_gider_formatli": "₺367.851,00"
+  },
+  "Ökkeş": {
+    "sefer_sayisi": 13,
+    "ham_gider": 136220,
+    "ham_gider_formatli": "₺136.220,00"
+  },
+  "İbrahim Halil Kalkan": {
+    "sefer_sayisi": 12,
+    "ham_gider": 356577,
+    "ham_gider_formatli": "₺356.577,00"
+  },
+  "İsmail Kaymaz(Şükrü)": {
+    "sefer_sayisi": 12,
+    "ham_gider": 325560,
+    "ham_gider_formatli": "₺325.560,00"
+  }
+}
