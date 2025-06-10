@@ -252,10 +252,41 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(response);
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('Dashboard özet verisi alınırken hata:', error);
+    
+    // Veritabanı bağlantı hatası kontrolü
+    if (error.message && error.message.includes("Can't reach database server")) {
+      return NextResponse.json({
+        error: 'Veritabanına bağlanılamıyor. Lütfen .env dosyasındaki DATABASE_URL\'yi kontrol ediniz.',
+        isEmpty: true,
+        // Boş dashboard verisi döndür
+        oncekiAy: {
+          ay: new Date().getMonth(),
+          ayAdi: 'Bilinmiyor',
+          yil: new Date().getFullYear(),
+          toplamKar: 0,
+          sirketKarlari: [],
+          aracKarlari: [],
+          seferSayisi: 0
+        },
+        vadesiYaklasanCekler: {
+          besGunIcinde: [],
+          vadesiGecen: []
+        },
+        uyarilar: {
+          vadesiYaklasanSayisi: 0,
+          vadesiGecenSayisi: 0,
+          toplamUyariTutari: 0
+        }
+      });
+    }
+    
     return NextResponse.json(
-      { error: 'Dashboard özet verisi alınırken bir hata oluştu' },
+      { 
+        error: 'Dashboard verisi alınırken bir hata oluştu',
+        isEmpty: true 
+      },
       { status: 500 }
     );
   } finally {
