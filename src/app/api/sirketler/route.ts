@@ -57,19 +57,9 @@ export async function GET() {
     return NextResponse.json(tumSirketler);
   } catch (error: any) {
     console.error('Şirketleri getirme hatası:', error);
-    
-    // Veritabanı bağlantı hatası kontrolü
-    if (error.message.includes("Can't reach database server")) {
-      return NextResponse.json(
-        { 
-          error: 'Veritabanına bağlanılamıyor. Lütfen daha sonra tekrar deneyiniz.',
-          isEmpty: true 
-        },
-        { status: 503 }
-      );
-    }
-    
-    // Genel hata için boş liste döndür
-    return NextResponse.json([]);
+    return NextResponse.json(
+      { error: 'Şirketler getirilirken bir hata oluştu: ' + error.message },
+      { status: 500 }
+    );
   }
 } 

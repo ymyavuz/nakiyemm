@@ -1,40 +1,26 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 
-type ThemeType = 'light' | 'dark';
+type ThemeType = 'light';
 
 interface ThemeContextType {
   theme: ThemeType;
-  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<ThemeType>('dark');
+  const theme: ThemeType = 'light';
   
-  // Sayfa yüklendiğinde localStorage'den tema bilgisini al
+  // Sayfa yüklendiğinde light tema uygula
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as ThemeType | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    }
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add('light');
   }, []);
   
-  // Tema değiştiğinde localStorage'e kaydet ve HTML class'ını güncelle
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-    document.documentElement.classList.remove('light', 'dark');
-    document.documentElement.classList.add(theme);
-  }, [theme]);
-  
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
-  };
-  
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme }}>
       {children}
     </ThemeContext.Provider>
   );
