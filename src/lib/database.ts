@@ -162,61 +162,54 @@ export const sirketFiyatListesi = {
   }
 };
 
-// Şirket Çekler İşlemleri
-export const sirketCekler = {
+// Çekler İşlemleri
+export const cekler = {
   getAll: async () => {
-    return await prisma.sirketCekler.findMany({
-      include: { sirket: true }
-    });
+    return await prisma.cekler.findMany();
   },
   
   getById: async (id: number) => {
-    return await prisma.sirketCekler.findUnique({
-      where: { cek_id: id },
-      include: { sirket: true }
+    return await prisma.cekler.findUnique({
+      where: { id: id }
     });
   },
   
   getBySirketId: async (sirketId: number) => {
-    return await prisma.sirketCekler.findMany({
-      where: { sirket_id: sirketId },
-      include: { sirket: true }
-    });
+    return await prisma.cekler.findMany();
   },
   
   create: async (data: { 
-    sirket_id: number;
-    cek_tutari: number;
-    cek_alinma_tarihi: Date;
-    cek_odeme_tarihi: Date;
-    durum: string;
+    cek_no: string;
+    vade_tarihi: Date;
+    tutar: number;
+    durum?: string;
     aciklama?: string;
   }) => {
-    return await prisma.sirketCekler.create({ 
+    return await prisma.cekler.create({ 
       data: {
         ...data,
-        kayit_tarihi: new Date()
+        olusturma_tarihi: new Date()
       } 
     });
   },
   
   update: async (id: number, data: { 
-    sirket_id?: number;
-    cek_tutari?: number;
-    cek_alinma_tarihi?: Date;
-    cek_odeme_tarihi?: Date;
+    cek_no?: string;
+    vade_tarihi?: Date;
+    tutar?: number;
     durum?: string;
     aciklama?: string;
+    odenme_tarihi?: Date;
   }) => {
-    return await prisma.sirketCekler.update({
-      where: { cek_id: id },
+    return await prisma.cekler.update({
+      where: { id: id },
       data
     });
   },
   
   delete: async (id: number) => {
-    return await prisma.sirketCekler.delete({
-      where: { cek_id: id }
+    return await prisma.cekler.delete({
+      where: { id: id }
     });
   }
 };
