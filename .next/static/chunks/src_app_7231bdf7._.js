@@ -244,6 +244,11 @@ const Sidebar = ()=>{
             href: '/eski-veri-yukle',
             label: 'Eski Veri Yükle',
             isActive: pathname === '/eski-veri-yukle'
+        },
+        {
+            href: '/fatura-excel',
+            label: 'Fatura Excel',
+            isActive: pathname === '/fatura-excel'
         }
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -260,7 +265,7 @@ const Sidebar = ()=>{
                             children: item.label
                         }, item.href, false, {
                             fileName: "[project]/src/app/components/Sidebar.tsx",
-                            lineNumber: 71,
+                            lineNumber: 76,
                             columnNumber: 13
                         }, this)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -271,30 +276,30 @@ const Sidebar = ()=>{
                                 className: "w-4 h-4"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Sidebar.tsx",
-                                lineNumber: 92,
+                                lineNumber: 97,
                                 columnNumber: 13
                             }, this),
                             "Çıkış Yap"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/Sidebar.tsx",
-                        lineNumber: 88,
+                        lineNumber: 93,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/Sidebar.tsx",
-                lineNumber: 69,
+                lineNumber: 74,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/components/Sidebar.tsx",
-            lineNumber: 68,
+            lineNumber: 73,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/components/Sidebar.tsx",
-        lineNumber: 67,
+        lineNumber: 72,
         columnNumber: 5
     }, this);
 };
@@ -761,7 +766,7 @@ function Home() {
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                         className: "text-gray-600",
-                                                                        children: "Gider:"
+                                                                        children: "Ham Gider:"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/page.tsx",
                                                                         lineNumber: 246,

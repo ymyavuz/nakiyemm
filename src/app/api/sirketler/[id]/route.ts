@@ -4,9 +4,10 @@ import { prisma } from '@/lib/db';
 // Şirket bilgilerini getir
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const id = parseInt(params.id);
 
     if (isNaN(id)) {
@@ -41,9 +42,10 @@ export async function GET(
 // Şirket bilgilerini güncelle
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const id = parseInt(params.id);
     const body = await request.json();
     const { sirket_adi, vergi_numarasi } = body;
@@ -102,9 +104,10 @@ export async function PUT(
 // Şirket sil
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const id = parseInt(params.id);
 
     if (isNaN(id)) {

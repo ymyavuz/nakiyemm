@@ -6,9 +6,10 @@ const prisma = new PrismaClient();
 // Çek durumunu güncelle
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const cekId = parseInt(params.id);
     const body = await request.json();
     const { durum } = body;
@@ -55,9 +56,10 @@ export async function PUT(
 // Çek sil
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const cekId = parseInt(params.id);
 
     await prisma.cekler.delete({

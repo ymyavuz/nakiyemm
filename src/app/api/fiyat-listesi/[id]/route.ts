@@ -6,9 +6,10 @@ const prisma = new PrismaClient();
 // PUT isteği - Belirli bir fiyat kaydını güncelle
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const fiyat_listesi_id = parseInt(params.id);
     
     if (isNaN(fiyat_listesi_id)) {
@@ -61,9 +62,10 @@ export async function PUT(
 // GET isteği - Belirli bir fiyat kaydını getir
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const fiyat_listesi_id = parseInt(params.id);
     
     if (isNaN(fiyat_listesi_id)) {
@@ -108,9 +110,10 @@ export async function GET(
 // DELETE isteği - Belirli bir fiyat kaydını sil
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params;
     const fiyat_listesi_id = parseInt(params.id);
     
     if (isNaN(fiyat_listesi_id)) {

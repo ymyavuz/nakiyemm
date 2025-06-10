@@ -243,7 +243,7 @@ export default function Home() {
                             <span className="font-medium text-blue-600">{formatTutar(sirket.kdv || 0)}</span>
                           </div>
                           <div className="flex justify-between text-sm">
-                            <span className="text-gray-600">Gider:</span>
+                            <span className="text-gray-600">Ham Gider:</span>
                             <span className="font-medium text-red-600">{formatTutar(sirket.gider)}</span>
                           </div>
                           <div className="flex justify-between text-sm">

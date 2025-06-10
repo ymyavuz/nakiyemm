@@ -147,10 +147,23 @@ async function GET(request) {
             acc[sirketId].gider += gider;
             acc[sirketId].soforKdv += soforKdv; // Şöför gider KDV'si
             acc[sirketId].tevkifat += tevkifat;
-            // Kar hesaplamasında hem gelir KDV'si hem şöför gider KDV'si dahil: (Gelir + KDV) - (Gider + Şöför KDV + Tevkifat)
-            acc[sirketId].kar = acc[sirketId].gelir + acc[sirketId].kdv - (acc[sirketId].gider + acc[sirketId].soforKdv + acc[sirketId].tevkifat);
             return acc;
         }, {});
+        // Şirket karlarını hesapla - YAP-İstanbul için özel mantık
+        Object.keys(sirketKarlari).forEach((sirketId)=>{
+            const sirket = sirketKarlari[sirketId];
+            let toplamGider = 0;
+            if (parseInt(sirketId) === 2) {
+                // YAP-İstanbul için: Ham gider + (Ham gider/5) - (Ham gider/25)
+                const hamGider = sirket.gider;
+                const kdvTutari = hamGider / 5; // %20 KDV
+                const tevkifatTutari = hamGider / 25; // %4 tevkifat
+                toplamGider = hamGider + kdvTutari - tevkifatTutari;
+            } else {
+                toplamGider = sirket.gider + sirket.soforKdv + sirket.tevkifat;
+            }
+            sirket.kar = sirket.gelir + sirket.kdv - toplamGider;
+        });
         // Şirket karlarını diziye çevir (sıralama yok)
         const sirketKarlariDizi = Object.values(sirketKarlari);
         // Toplam kar hesapla

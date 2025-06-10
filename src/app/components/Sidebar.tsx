@@ -60,6 +60,11 @@ const Sidebar = () => {
       href: '/eski-veri-yukle',
       label: 'Eski Veri Yükle',
       isActive: pathname === '/eski-veri-yukle'
+    },
+    {
+      href: '/fatura-excel',
+      label: 'Fatura Excel',
+      isActive: pathname === '/fatura-excel'
     }
   ];
 
