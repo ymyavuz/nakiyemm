@@ -373,28 +373,35 @@ export async function POST(request: Request) {
           
           console.log(`===> Dönüştürülmüş arac_id: ${finalAracId}, tipi: ${typeof finalAracId}`);
           
+          // Yıl bilgisini hesapla - irsaliye tarihinden veya mevcut yıldan
+          let yil = new Date().getFullYear(); // Varsayılan olarak mevcut yıl
+          if (irsaliyeTarihi) {
+            yil = irsaliyeTarihi.getFullYear();
+          }
+
           // Seferi veritabanına kaydet
           await prisma.seferler.create({
             data: {
               sira_no: seferNo,
               irsaliye_numarasi: irsaliyeNumarasi,
               irsaliye_tarihi: irsaliyeTarihi,
-              kalkis_saati: null, // Eski verilerde genellikle saat bilgisi yok
-              varis_saati: null,
+              kalkis_saati: null as any, // Eski verilerde genellikle saat bilgisi yok
+              varis_saati: null as any,
               cikis_yeri: cikisYeri,
               tahliye_edilen_firma: tahliyeEdilenFirma,
               tahliye_yeri: tahliyeYeri,
-              tonaj_kg: tonajKg,
+              tonaj_kg: tonajKg as any,
               arac_tipi: aracTipi,
-              mt: mt,
+              mt: mt as any,
               aciklama: aciklama,
               sirketten_alinan_ucret: sirketten_alinan_ucret,
               sofore_odenen_ucret: sofore_odenen_ucret,
-              sofor_fatura_ucreti: sofor_fatura_ucreti,
+              sofor_fatura_ucreti: sofor_fatura_ucreti as any,
               sirket_id: sirketId,
-              arac_id: finalAracId,
+              arac_id: finalAracId as any,
               ay: ay,
-              donem: donem
+              donem: donem,
+              yil: yil  // Yıl alanını ekliyoruz
             }
           });
           

@@ -36,23 +36,24 @@ model Seferler {
   sira_no                Int
   irsaliye_numarasi      String?   @db.VarChar(50)
   irsaliye_tarihi        DateTime? @db.Date
-  kalkis_saati           DateTime? @db.Time(6)
-  varis_saati            DateTime? @db.Time(6)
+  kalkis_saati           DateTime  @db.Time(6)
+  varis_saati            DateTime  @db.Time(6)
   cikis_yeri             String    @db.VarChar(255)
   tahliye_edilen_firma   String    @db.VarChar(255)
   tahliye_yeri           String    @db.VarChar(255)
-  tonaj_kg               String    @db.VarChar(50)
   arac_tipi              String    @db.VarChar(50)
   mt                     Float?
   aciklama               String?
   sirketten_alinan_ucret Float
   sofore_odenen_ucret    Float
   sirket_id              Int
-  arac_id                Int?
+  arac_id                Int
   ay                     Int?
   donem                  Int?
   sofor_fatura_ucreti    Float?
-  arac                   Araclar?  @relation(fields: [arac_id], references: [arac_id])
+  yil                    Int?
+  tonaj_kg               Float
+  arac                   Araclar   @relation(fields: [arac_id], references: [arac_id])
   sirket                 Sirketler @relation(fields: [sirket_id], references: [sirket_id])
 
   @@map("seferler")
@@ -115,11 +116,11 @@ model Cekler {
 }
 
 model SoforOdemeler {
-  id          Int      @id @default(autoincrement())
-  sofor_adi   String   @db.VarChar(255)
-  tutar       Float
-  tarih       DateTime @default(now())
-  aciklama    String?  @db.VarChar(500)
-  
+  id        Int      @id @default(autoincrement())
+  sofor_adi String   @db.VarChar(255)
+  tutar     Float
+  tarih     DateTime @default(now())
+  aciklama  String?  @db.VarChar(500)
+
   @@map("sofor_odemeler")
 }

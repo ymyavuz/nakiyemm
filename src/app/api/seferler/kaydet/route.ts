@@ -23,6 +23,7 @@ type SeferData = {
   arac_id?: number | null;
   ay: number;
   donem: number;
+  yil?: number | null;
   sofor_fatura_ucreti?: number | null;
 };
 
@@ -281,6 +282,12 @@ export async function POST(request: Request) {
             continue;
           }
           
+          // Yıl bilgisini hesapla - irsaliye tarihinden veya mevcut yıldan
+          let yil = new Date().getFullYear(); // Varsayılan olarak mevcut yıl
+          if (irsaliyeTarihi) {
+            yil = irsaliyeTarihi.getFullYear();
+          }
+
           // Prisma modeli için veriyi hazırlayalım
           // Artık zorunlu alanlar null olabilir
           const seferData = {
@@ -302,6 +309,7 @@ export async function POST(request: Request) {
             arac_id: aracId as any,  // Null olabilir
             ay: ay,
             donem: donem,
+            yil: yil,  // Yıl alanını ekliyoruz
             sofor_fatura_ucreti: soforFaturaUcreti as any
           };
           
@@ -322,6 +330,7 @@ export async function POST(request: Request) {
           console.log(`- Araç ID: ${aracId !== null ? aracId : 'null'}`);
           console.log(`- Ay: ${ay}`);
           console.log(`- Dönem: ${donem}`);
+          console.log(`- Yıl: ${yil}`);
           
           const yeniSefer = await prisma.seferler.create({
             data: seferData
