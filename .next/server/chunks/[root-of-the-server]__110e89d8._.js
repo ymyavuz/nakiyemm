@@ -67,14 +67,68 @@ module.exports = mod;
 var { g: global, __dirname } = __turbopack_context__;
 {
 __turbopack_context__.s({
+    "createFreshPrismaClient": (()=>createFreshPrismaClient),
     "prisma": (()=>prisma)
 });
 var __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/@prisma/client [external] (@prisma/client, cjs)");
 ;
-const prisma = global.prisma || new __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$29$__["PrismaClient"]();
-if ("TURBOPACK compile-time truthy", 1) {
-    global.prisma = prisma;
-}
+// Prepared statement sorunlarını önlemek için URL modifikasyonu
+const getDatabaseUrl = ()=>{
+    let url = process.env.DATABASE_URL;
+    if (!url) return url;
+    // Environment variable'dan "DATABASE_URL = " prefix'i temizle
+    if (url.startsWith('DATABASE_URL = ')) {
+        url = url.replace('DATABASE_URL = ', '');
+    }
+    // URL geçerliliğini kontrol et
+    try {
+        const urlObj = new URL(url);
+        // Prepared statement cache'i tamamen devre dışı bırak
+        urlObj.searchParams.set('prepared_statement_cache_queries', '0');
+        // Statement cache'i de kapat
+        urlObj.searchParams.set('statement_cache_size', '0');
+        // Connection timeout ayarla
+        urlObj.searchParams.set('connection_timeout', '10');
+        return urlObj.toString();
+    } catch (error) {
+        console.error('DATABASE_URL parsing hatası:', error);
+        console.error('URL değeri:', url);
+        // Fallback olarak temizlenmiş URL'i döndür
+        return url;
+    }
+};
+const createFreshPrismaClient = ()=>{
+    return new __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$29$__["PrismaClient"]({
+        datasources: {
+            db: {
+                url: getDatabaseUrl()
+            }
+        },
+        log: ("TURBOPACK compile-time truthy", 1) ? [
+            'error'
+        ] : ("TURBOPACK unreachable", undefined)
+    });
+};
+const prisma = (()=>{
+    if ("TURBOPACK compile-time falsy", 0) {
+        "TURBOPACK unreachable";
+    }
+    // Development için singleton ama prepared statement'ları disable et
+    if (!global.__prisma) {
+        global.__prisma = new __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$29$__["PrismaClient"]({
+            datasources: {
+                db: {
+                    url: getDatabaseUrl()
+                }
+            },
+            log: [
+                'error',
+                'warn'
+            ]
+        });
+    }
+    return global.__prisma;
+})();
 }}),
 "[project]/src/app/api/arac-muhasebe-raporu/route.ts [app-route] (ecmascript)": ((__turbopack_context__) => {
 "use strict";

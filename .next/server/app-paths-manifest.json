@@ -1,14 +1,16 @@
 {
+  "/api/arac-masraflari/route": "app/api/arac-masraflari/route.js",
+  "/api/arac-muhasebe-raporu/route": "app/api/arac-muhasebe-raporu/route.js",
   "/api/araclar/route": "app/api/araclar/route.js",
   "/api/cekler/route": "app/api/cekler/route.js",
   "/api/ciro-hesapla/route": "app/api/ciro-hesapla/route.js",
   "/api/dashboard-ozet/route": "app/api/dashboard-ozet/route.js",
-  "/api/eski-veri-yukle/route": "app/api/eski-veri-yukle/route.js",
+  "/api/masraf-tipleri/route": "app/api/masraf-tipleri/route.js",
   "/api/sirket-bilanco/route": "app/api/sirket-bilanco/route.js",
-  "/api/sirketler/route": "app/api/sirketler/route.js",
-  "/eski-veri-yukle/page": "app/eski-veri-yukle/page.js",
+  "/api/sofor-odemeler/route": "app/api/sofor-odemeler/route.js",
+  "/login/page": "app/login/page.js",
   "/page": "app/page.js",
-  "/sirket-bilanco/page": "app/sirket-bilanco/page.js",
-  "/veritabani-yonetimi/araclar/page": "app/veritabani-yonetimi/araclar/page.js",
-  "/veritabani-yonetimi/page": "app/veritabani-yonetimi/page.js"
+  "/sofor-bilanco/arac-masraflari/page": "app/sofor-bilanco/arac-masraflari/page.js",
+  "/sofor-bilanco/arac-muhasebe/page": "app/sofor-bilanco/arac-muhasebe/page.js",
+  "/sofor-bilanco/page": "app/sofor-bilanco/page.js"
 }

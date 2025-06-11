@@ -115,8 +115,8 @@ export async function GET(request: NextRequest) {
     // Toplam kar hesapla
     const toplamKar = sirketKarlariDizi.reduce((toplam: number, sirket: any) => toplam + sirket.kar, 0);
 
-    // Belirli araçların kar hesaplaması (ID: 3, 4, 6, 8)
-    const hedefAraclar = [3, 4, 6, 8];
+    // Belirli araçların kar hesaplaması (ID: 3, 5, 7, 8)
+    const hedefAraclar = [3, 5, 7, 8];
     
     // Önce araç masraflarını al
     const aracMasraflari = await prisma.aracOdemeKayitlari.findMany({

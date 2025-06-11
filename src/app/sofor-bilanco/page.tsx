@@ -507,7 +507,7 @@ export default function SoforBilanco() {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {[4, 5, 6, 8, 3].map((istenenAracId, index) => {
+                    {[3, 5, 7, 8].map((istenenAracId, index) => {
                       const aracVeri = raporVerisi.aracBazindaAylikVeriler.find(arac => arac.arac_id === istenenAracId);
                       
                       if (!aracVeri) {
@@ -544,40 +544,36 @@ export default function SoforBilanco() {
                           </td>
                           <td className={`px-2 py-2 whitespace-nowrap text-xs text-center font-bold bg-blue-100 border-l-2 border-blue-300 ${
                             (() => {
-                              // Şöför adına göre şirket payı hesaplama
+                              // Araç ID'sine göre şirket payı hesaplama
                               let sirketPayi = 0;
                               const yillikToplam = aracVeri.yillikToplam.kar;
                               
-                              if (aracVeri.sofor_adi.includes('İsmail Kaymaz') || aracVeri.sofor_adi.includes('Şükrü')) {
-                                sirketPayi = yillikToplam * 0.75;
-                              } else if (aracVeri.sofor_adi.includes('Ali Kalkan')) {
-                                sirketPayi = yillikToplam * 0.5;
-                              } else if (aracVeri.sofor_adi.includes('Bilal Kalkan')) {
-                                sirketPayi = yillikToplam * 0.5;
-                              } else if (aracVeri.sofor_adi.includes('Seyhan Kalkan')) {
-                                sirketPayi = yillikToplam * (1/6);
-                              } else if (aracVeri.sofor_adi.includes('İbrahim Halil Kalkan')) {
-                                sirketPayi = 0;
+                              if (aracVeri.arac_id === 3) {
+                                sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
+                              } else if (aracVeri.arac_id === 5) {
+                                sirketPayi = (yillikToplam / 4) * 3; // (Yıllık Toplam/4)*3
+                              } else if (aracVeri.arac_id === 7) {
+                                sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
+                              } else if (aracVeri.arac_id === 8) {
+                                sirketPayi = yillikToplam / 6; // Yıllık Toplam/6
                               }
                               
                               return sirketPayi > 0 ? 'text-blue-600' : 'text-gray-500';
                             })()
                           }`}>
                             {(() => {
-                              // Şöför adına göre şirket payı hesaplama
+                              // Araç ID'sine göre şirket payı hesaplama
                               let sirketPayi = 0;
                               const yillikToplam = aracVeri.yillikToplam.kar;
                               
-                              if (aracVeri.sofor_adi.includes('İsmail Kaymaz') || aracVeri.sofor_adi.includes('Şükrü')) {
-                                sirketPayi = yillikToplam * 0.75;
-                              } else if (aracVeri.sofor_adi.includes('Ali Kalkan')) {
-                                sirketPayi = yillikToplam * 0.5;
-                              } else if (aracVeri.sofor_adi.includes('Bilal Kalkan')) {
-                                sirketPayi = yillikToplam * 0.5;
-                              } else if (aracVeri.sofor_adi.includes('Seyhan Kalkan')) {
-                                sirketPayi = yillikToplam * (1/6);
-                              } else if (aracVeri.sofor_adi.includes('İbrahim Halil Kalkan')) {
-                                sirketPayi = 0;
+                              if (aracVeri.arac_id === 3) {
+                                sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
+                              } else if (aracVeri.arac_id === 5) {
+                                sirketPayi = (yillikToplam / 4) * 3; // (Yıllık Toplam/4)*3
+                              } else if (aracVeri.arac_id === 7) {
+                                sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
+                              } else if (aracVeri.arac_id === 8) {
+                                sirketPayi = yillikToplam / 6; // Yıllık Toplam/6
                               }
                               
                               return formatTutar(sirketPayi);
@@ -593,7 +589,7 @@ export default function SoforBilanco() {
                         SEÇİLİ ARAÇLAR TOPLAMI
                       </td>
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((ay) => {
-                        const aylikToplam = [4, 5, 6, 8, 3].reduce((toplam, aracId) => {
+                        const aylikToplam = [3, 5, 7, 8].reduce((toplam, aracId) => {
                           const aracVeri = raporVerisi.aracBazindaAylikVeriler.find(arac => arac.arac_id === aracId);
                           return toplam + (aracVeri?.aylikVeriler[ay]?.kar || 0);
                         }, 0);
@@ -609,7 +605,7 @@ export default function SoforBilanco() {
                       })}
                       <td className={`px-2 py-2 whitespace-nowrap text-xs text-center bg-purple-100 border-l-2 border-purple-300 ${
                         (() => {
-                          const yillikToplam = [4, 5, 6, 8, 3].reduce((toplam, aracId) => {
+                          const yillikToplam = [3, 5, 7, 8].reduce((toplam, aracId) => {
                             const aracVeri = raporVerisi.aracBazindaAylikVeriler.find(arac => arac.arac_id === aracId);
                             return toplam + (aracVeri?.yillikToplam.kar || 0);
                           }, 0);
@@ -617,30 +613,28 @@ export default function SoforBilanco() {
                                  yillikToplam < 0 ? 'text-red-600' : 'text-gray-500';
                         })()
                       }`}>
-                        {formatTutar([4, 5, 6, 8, 3].reduce((toplam, aracId) => {
+                        {formatTutar([3, 5, 7, 8].reduce((toplam, aracId) => {
                           const aracVeri = raporVerisi.aracBazindaAylikVeriler.find(arac => arac.arac_id === aracId);
                           return toplam + (aracVeri?.yillikToplam.kar || 0);
                         }, 0))}
                       </td>
                       <td className={`px-2 py-2 whitespace-nowrap text-xs text-center bg-blue-100 border-l-2 border-blue-300 text-blue-600`}>
-                        {formatTutar([4, 5, 6, 8, 3].reduce((toplam, aracId) => {
+                        {formatTutar([3, 5, 7, 8].reduce((toplam, aracId) => {
                           const aracVeri = raporVerisi.aracBazindaAylikVeriler.find(arac => arac.arac_id === aracId);
                           if (!aracVeri) return toplam;
                           
-                          // Şöför adına göre şirket payı hesaplama
+                          // Araç ID'sine göre şirket payı hesaplama
                           let sirketPayi = 0;
                           const yillikToplam = aracVeri.yillikToplam.kar;
                           
-                          if (aracVeri.sofor_adi.includes('İsmail Kaymaz') || aracVeri.sofor_adi.includes('Şükrü')) {
-                            sirketPayi = yillikToplam * 0.75;
-                          } else if (aracVeri.sofor_adi.includes('Ali Kalkan')) {
-                            sirketPayi = yillikToplam * 0.5;
-                          } else if (aracVeri.sofor_adi.includes('Bilal Kalkan')) {
-                            sirketPayi = yillikToplam * 0.5;
-                          } else if (aracVeri.sofor_adi.includes('Seyhan Kalkan')) {
-                            sirketPayi = yillikToplam * (1/6);
-                          } else if (aracVeri.sofor_adi.includes('İbrahim Halil Kalkan')) {
-                            sirketPayi = 0;
+                          if (aracVeri.arac_id === 3) {
+                            sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
+                          } else if (aracVeri.arac_id === 5) {
+                            sirketPayi = (yillikToplam / 4) * 3; // (Yıllık Toplam/4)*3
+                          } else if (aracVeri.arac_id === 7) {
+                            sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
+                          } else if (aracVeri.arac_id === 8) {
+                            sirketPayi = yillikToplam / 6; // Yıllık Toplam/6
                           }
                           
                           return toplam + sirketPayi;
