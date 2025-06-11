@@ -1,12 +1,4 @@
 {
-  "/api/cekler/route": "app/api/cekler/route.js",
-  "/api/ciro-hesapla/route": "app/api/ciro-hesapla/route.js",
-  "/api/dashboard-ozet/route": "app/api/dashboard-ozet/route.js",
-  "/api/debug/update-sefer-yil/route": "app/api/debug/update-sefer-yil/route.js",
-  "/api/debug/update-yil/route": "app/api/debug/update-yil/route.js",
-  "/api/sirket-bilanco/route": "app/api/sirket-bilanco/route.js",
-  "/api/sirketler/route": "app/api/sirketler/route.js",
-  "/eski-veri-yukle/page": "app/eski-veri-yukle/page.js",
-  "/page": "app/page.js",
+  "/sirket-fiyat-fatura/page": "app/sirket-fiyat-fatura/page.js",
   "/veri-yukle/page": "app/veri-yukle/page.js"
 }

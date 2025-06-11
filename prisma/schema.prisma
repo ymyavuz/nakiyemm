@@ -41,7 +41,7 @@ model Seferler {
   cikis_yeri             String    @db.VarChar(255)
   tahliye_edilen_firma   String    @db.VarChar(255)
   tahliye_yeri           String    @db.VarChar(255)
-  tonaj_kg               Float
+  tonaj_kg               String    @db.VarChar(50)
   arac_tipi              String    @db.VarChar(50)
   mt                     Float?
   aciklama               String?
