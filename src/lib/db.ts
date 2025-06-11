@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 
 declare global {
-  var prisma: PrismaClient | undefined;
+  var __prisma: PrismaClient | undefined;
 }
 
 // Connection URI'yi prepared statement sorunlarını önleyecek şekilde modifiye et
@@ -24,35 +24,45 @@ const getDatabaseUrl = () => {
   return url;
 };
 
-// Vercel serverless functions için optimize edilmiş Prisma client
-export const prisma = 
-  global.prisma ||
-  new PrismaClient({
+// Vercel serverless functions için her istekte yeni client oluştur
+// Bu approach prepared statement conflict'lerini tamamen önler
+export const createPrismaClient = () => {
+  return new PrismaClient({
     datasources: {
       db: {
         url: getDatabaseUrl(),
       },
     },
-    // Connection pool ayarları - prepared statement sorununu çözmek için
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+    log: process.env.NODE_ENV === 'development' ? ['error'] : [],
   });
+};
 
-if (process.env.NODE_ENV !== 'production') {
-  global.prisma = prisma;
-}
-
-// Vercel serverless ortamında graceful shutdown
-if (process.env.VERCEL || process.env.NODE_ENV === 'production') {
-  // Process sonlandırılırken bağlantıları temizle
-  const cleanup = async () => {
-    try {
-      await prisma.$disconnect();
-    } catch (error) {
-      console.error('Prisma disconnect error:', error);
-    }
-  };
-
-  process.on('beforeExit', cleanup);
-  process.on('SIGTERM', cleanup);
-  process.on('SIGINT', cleanup);
-} 
+// Vercel serverless prepared statement sorunları için
+// Production'da her istekte yeni client, development'ta singleton
+export const prisma = (() => {
+  // Production'da (Vercel) her istekte yeni client oluştur
+  if (process.env.VERCEL || process.env.NODE_ENV === 'production') {
+    return new PrismaClient({
+      datasources: {
+        db: {
+          url: process.env.DATABASE_URL,
+        },
+      },
+      log: ['error'],
+    });
+  }
+  
+  // Development'ta singleton pattern
+  if (!global.__prisma) {
+    global.__prisma = new PrismaClient({
+      datasources: {
+        db: {
+          url: process.env.DATABASE_URL,
+        },
+      },
+      log: ['query', 'error', 'warn'],
+    });
+  }
+  
+  return global.__prisma;
+})(); 
