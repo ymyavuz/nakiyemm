@@ -42,6 +42,11 @@ export async function POST(request: Request) {
       { error: 'Şirket eklenirken bir hata oluştu: ' + error.message },
       { status: 500 }
     );
+  } finally {
+    // Vercel serverless prepared statement sorunları için explicit disconnect
+    if (process.env.VERCEL) {
+      await prisma.$disconnect();
+    }
   }
 }
 
@@ -61,5 +66,10 @@ export async function GET() {
       { error: 'Şirketler getirilirken bir hata oluştu: ' + error.message },
       { status: 500 }
     );
+  } finally {
+    // Vercel serverless prepared statement sorunları için explicit disconnect
+    if (process.env.VERCEL) {
+      await prisma.$disconnect();
+    }
   }
 } 
