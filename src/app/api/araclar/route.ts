@@ -1,9 +1,6 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/db';
 import { NextRequest } from 'next/server';
 import { prisma } from '@/lib/db';
-
-const prismaClient = new PrismaClient();
 
 export async function POST(request: Request) {
   try {
@@ -63,7 +60,7 @@ export async function POST(request: Request) {
 
 export async function GET(request: NextRequest) {
   try {
-    const araclar = await prismaClient.araclar.findMany({
+    const araclar = await prisma.araclar.findMany({
       include: {
         sirket: true
       },
@@ -82,7 +79,5 @@ export async function GET(request: NextRequest) {
       { error: 'Araçlar getirilirken bir hata oluştu' },
       { status: 500 }
     );
-  } finally {
-    await prismaClient.$disconnect();
   }
 } 
