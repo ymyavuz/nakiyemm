@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/db';
+import { prisma, createFreshPrismaClient } from '@/lib/db';
 
 // Prisma client oluştur
 
@@ -28,6 +28,9 @@ type SeferData = {
 };
 
 export async function POST(request: Request) {
+  // Prepared statement çakışmalarını önlemek için fresh client kullan
+  const freshPrisma = createFreshPrismaClient();
+  
   try {
     // Gelen verileri al
     const { ay, donem, seferler } = await request.json();
@@ -332,7 +335,7 @@ export async function POST(request: Request) {
           console.log(`- Dönem: ${donem}`);
           console.log(`- Yıl: ${yil}`);
           
-          const yeniSefer = await prisma.seferler.create({
+          const yeniSefer = await freshPrisma.seferler.create({
             data: seferData
           });
           
@@ -358,6 +361,9 @@ export async function POST(request: Request) {
     return NextResponse.json({
       error: 'Veriler işlenirken bir hata oluştu: ' + error.message
     }, { status: 500 });
+  } finally {
+    // Fresh client bağlantısını kapat
+    await freshPrisma.$disconnect();
   }
 }
 

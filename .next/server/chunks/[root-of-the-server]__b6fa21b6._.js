@@ -67,29 +67,25 @@ module.exports = mod;
 var { g: global, __dirname } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "createPrismaClient": (()=>createPrismaClient),
+    "createFreshPrismaClient": (()=>createFreshPrismaClient),
     "prisma": (()=>prisma)
 });
 var __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/@prisma/client [external] (@prisma/client, cjs)");
 ;
-// Connection URI'yi prepared statement sorunlarını önleyecek şekilde modifiye et
+// Prepared statement sorunlarını önlemek için URL modifikasyonu
 const getDatabaseUrl = ()=>{
     const url = process.env.DATABASE_URL;
     if (!url) return url;
-    // Vercel environment'ında connection pooling parametreleri ekle
-    if (process.env.VERCEL) {
-        const urlObj = new URL(url);
-        // Prepared statement cache'i devre dışı bırak
-        urlObj.searchParams.set('prepared_statement_cache_queries', '0');
-        // Connection timeout ayarla
-        urlObj.searchParams.set('connection_timeout', '10');
-        // Statement timeout ayarla  
-        urlObj.searchParams.set('query_timeout', '30');
-        return urlObj.toString();
-    }
-    return url;
+    const urlObj = new URL(url);
+    // Prepared statement cache'i tamamen devre dışı bırak
+    urlObj.searchParams.set('prepared_statement_cache_queries', '0');
+    // Statement cache'i de kapat
+    urlObj.searchParams.set('statement_cache_size', '0');
+    // Connection timeout ayarla
+    urlObj.searchParams.set('connection_timeout', '10');
+    return urlObj.toString();
 };
-const createPrismaClient = ()=>{
+const createFreshPrismaClient = ()=>{
     return new __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$29$__["PrismaClient"]({
         datasources: {
             db: {
@@ -102,29 +98,18 @@ const createPrismaClient = ()=>{
     });
 };
 const prisma = (()=>{
-    // Production'da (Vercel) her istekte yeni client oluştur
-    if (process.env.VERCEL || ("TURBOPACK compile-time value", "development") === 'production') {
-        return new __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$29$__["PrismaClient"]({
-            datasources: {
-                db: {
-                    url: process.env.DATABASE_URL
-                }
-            },
-            log: [
-                'error'
-            ]
-        });
+    if ("TURBOPACK compile-time falsy", 0) {
+        "TURBOPACK unreachable";
     }
-    // Development'ta singleton pattern
+    // Development için singleton ama prepared statement'ları disable et
     if (!global.__prisma) {
         global.__prisma = new __TURBOPACK__imported__module__$5b$externals$5d2f40$prisma$2f$client__$5b$external$5d$__$2840$prisma$2f$client$2c$__cjs$29$__["PrismaClient"]({
             datasources: {
                 db: {
-                    url: process.env.DATABASE_URL
+                    url: getDatabaseUrl()
                 }
             },
             log: [
-                'query',
                 'error',
                 'warn'
             ]

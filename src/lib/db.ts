@@ -4,29 +4,23 @@ declare global {
   var __prisma: PrismaClient | undefined;
 }
 
-// Connection URI'yi prepared statement sorunlarını önleyecek şekilde modifiye et
+// Prepared statement sorunlarını önlemek için URL modifikasyonu
 const getDatabaseUrl = () => {
   const url = process.env.DATABASE_URL;
   if (!url) return url;
   
-  // Vercel environment'ında connection pooling parametreleri ekle
-  if (process.env.VERCEL) {
-    const urlObj = new URL(url);
-    // Prepared statement cache'i devre dışı bırak
-    urlObj.searchParams.set('prepared_statement_cache_queries', '0');
-    // Connection timeout ayarla
-    urlObj.searchParams.set('connection_timeout', '10');
-    // Statement timeout ayarla  
-    urlObj.searchParams.set('query_timeout', '30');
-    return urlObj.toString();
-  }
-  
-  return url;
+  const urlObj = new URL(url);
+  // Prepared statement cache'i tamamen devre dışı bırak
+  urlObj.searchParams.set('prepared_statement_cache_queries', '0');
+  // Statement cache'i de kapat
+  urlObj.searchParams.set('statement_cache_size', '0');
+  // Connection timeout ayarla
+  urlObj.searchParams.set('connection_timeout', '10');
+  return urlObj.toString();
 };
 
-// Vercel serverless functions için her istekte yeni client oluştur
-// Bu approach prepared statement conflict'lerini tamamen önler
-export const createPrismaClient = () => {
+// Her API çağrısında yeni connection kullan (prepared statement çakışmalarını önlemek için)
+export const createFreshPrismaClient = () => {
   return new PrismaClient({
     datasources: {
       db: {
@@ -37,30 +31,29 @@ export const createPrismaClient = () => {
   });
 };
 
-// Vercel serverless prepared statement sorunları için
-// Production'da her istekte yeni client, development'ta singleton
+// Ana prisma client - prepared statement sorunu için connection'ı optimize et
 export const prisma = (() => {
-  // Production'da (Vercel) her istekte yeni client oluştur
-  if (process.env.VERCEL || process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production') {
+    // Production'da prepared statement sorunlarını önlemek için modifiye edilmiş URL kullan
     return new PrismaClient({
       datasources: {
         db: {
-          url: process.env.DATABASE_URL,
+          url: getDatabaseUrl(),
         },
       },
       log: ['error'],
     });
   }
   
-  // Development'ta singleton pattern
+  // Development için singleton ama prepared statement'ları disable et
   if (!global.__prisma) {
     global.__prisma = new PrismaClient({
       datasources: {
         db: {
-          url: process.env.DATABASE_URL,
+          url: getDatabaseUrl(),
         },
       },
-      log: ['query', 'error', 'warn'],
+      log: ['error', 'warn'],
     });
   }
   

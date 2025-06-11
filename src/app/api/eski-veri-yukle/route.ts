@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/db';
+import { prisma, createFreshPrismaClient } from '@/lib/db';
 
 
 export async function POST(request: Request) {
+  // Prepared statement çakışmalarını önlemek için fresh client kullan
+  const freshPrisma = createFreshPrismaClient();
+  
   try {
     const { ay, donem, seferler } = await request.json();
     
@@ -379,8 +382,8 @@ export async function POST(request: Request) {
             yil = irsaliyeTarihi.getFullYear();
           }
 
-          // Seferi veritabanına kaydet
-          await prisma.seferler.create({
+          // Seferi veritabanına kaydet (fresh client ile prepared statement sorunlarını önle)
+          await freshPrisma.seferler.create({
             data: {
               sira_no: seferNo,
               irsaliye_numarasi: irsaliyeNumarasi,
@@ -433,6 +436,9 @@ export async function POST(request: Request) {
     return NextResponse.json({
       error: 'Veri kaydedilirken bir hata oluştu: ' + (error instanceof Error ? error.message : 'Bilinmeyen hata')
     }, { status: 500 });
+  } finally {
+    // Fresh client bağlantısını kapat
+    await freshPrisma.$disconnect();
   }
 }
 
