@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/db';
 
-const prisma = new PrismaClient();
 
 // Toplam fiyatı hesapla (MT * Birim Fiyat)
 const hesaplaToplamFiyat = (sefer: any, birimFiyat: number): number => {

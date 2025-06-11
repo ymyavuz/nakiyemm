@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/db';
 
 // Prisma client oluştur
-const prisma = new PrismaClient();
 
 // Linter hatasını önlemek için doğrudan tipi tanımlıyoruz
 type SeferData = {

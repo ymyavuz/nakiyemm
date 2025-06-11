@@ -1,14 +1,1 @@
-{
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/cekler/route": "app/api/cekler/route.js",
-  "/api/ciro-hesapla/route": "app/api/ciro-hesapla/route.js",
-  "/api/dashboard-ozet/route": "app/api/dashboard-ozet/route.js",
-  "/api/sirket-bilanco/route": "app/api/sirket-bilanco/route.js",
-  "/api/sirketler/route": "app/api/sirketler/route.js",
-  "/eski-veri-yukle/page": "app/eski-veri-yukle/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/login/page": "app/login/page.js",
-  "/page": "app/page.js",
-  "/sirket-fiyat-fatura/page": "app/sirket-fiyat-fatura/page.js",
-  "/veri-yukle/page": "app/veri-yukle/page.js"
-}
+{}

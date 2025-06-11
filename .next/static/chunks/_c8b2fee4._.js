@@ -18,42 +18,26 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 const ThemeContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
 function ThemeProvider({ children }) {
     _s();
-    const [theme, setTheme] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('dark');
-    // Sayfa yüklendiğinde localStorage'den tema bilgisini al
+    const theme = 'light';
+    // Sayfa yüklendiğinde light tema uygula
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "ThemeProvider.useEffect": ()=>{
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                setTheme(savedTheme);
-            }
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
         }
     }["ThemeProvider.useEffect"], []);
-    // Tema değiştiğinde localStorage'e kaydet ve HTML class'ını güncelle
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "ThemeProvider.useEffect": ()=>{
-            localStorage.setItem('theme', theme);
-            document.documentElement.classList.remove('light', 'dark');
-            document.documentElement.classList.add(theme);
-        }
-    }["ThemeProvider.useEffect"], [
-        theme
-    ]);
-    const toggleTheme = ()=>{
-        setTheme((prevTheme)=>prevTheme === 'dark' ? 'light' : 'dark');
-    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ThemeContext.Provider, {
         value: {
-            theme,
-            toggleTheme
+            theme
         },
         children: children
     }, void 0, false, {
         fileName: "[project]/src/app/context/ThemeContext.tsx",
-        lineNumber: 37,
+        lineNumber: 23,
         columnNumber: 5
     }, this);
 }
-_s(ThemeProvider, "FaR+67HYMnxyxOLL3EkvHKRjhfs=");
+_s(ThemeProvider, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = ThemeProvider;
 function useTheme() {
     _s1();
