@@ -529,25 +529,79 @@ export default function SirketBilanco() {
                 <div className="text-center p-4 bg-red-50 rounded">
                   <p className="text-sm text-gray-600">Toplam Gider</p>
                   <p className="text-xl font-bold text-red-600">
-                    {formatTutar(bilancoVerisi.gelirGider.toplamGider + (bilancoVerisi.gelirGider.toplamSoforKDV || 0) + (bilancoVerisi.gelirGider.toplamTevkifat || 0))}
+                    {(() => {
+                      // Aylık performans tablosundaki Tevkifat + Toplam Gider toplamını hesapla
+                      const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam: number, ayVeri: any) => {
+                        const hesaplananToplamGider = ayVeri.gider + (ayVeri.gider / 5) - (ayVeri.gider / 25);
+                        const tevkifat = ayVeri.tevkifat;
+                        return toplam + tevkifat + hesaplananToplamGider;
+                      }, 0);
+                      return formatTutar(aylikTevkifatVeGiderToplami);
+                    })()}
                   </p>
                 </div>
                 
                 <div className={`text-center p-4 rounded ${
-                  bilancoVerisi.gelirGider.netKar >= 0 ? 'bg-blue-50' : 'bg-orange-50'
+                  (() => {
+                    // Net kar hesaplaması için doğru gider değerini kullan
+                    const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                    const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam: number, ayVeri: any) => {
+                      const hesaplananToplamGider = ayVeri.gider + (ayVeri.gider / 5) - (ayVeri.gider / 25);
+                      const tevkifat = ayVeri.tevkifat;
+                      return toplam + tevkifat + hesaplananToplamGider;
+                    }, 0);
+                    const netKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                    return netKar >= 0 ? 'bg-blue-50' : 'bg-orange-50';
+                  })()
                 }`}>
-                  <p className="text-sm text-gray-600">Net {bilancoVerisi.gelirGider.netKar >= 0 ? 'Kar' : 'Zarar'}</p>
+                  <p className="text-sm text-gray-600">Net {(() => {
+                    const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                    const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam: number, ayVeri: any) => {
+                      const hesaplananToplamGider = ayVeri.gider + (ayVeri.gider / 5) - (ayVeri.gider / 25);
+                      const tevkifat = ayVeri.tevkifat;
+                      return toplam + tevkifat + hesaplananToplamGider;
+                    }, 0);
+                    const netKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                    return netKar >= 0 ? 'Kar' : 'Zarar';
+                  })()}</p>
                   <p className={`text-xl font-bold ${
-                    bilancoVerisi.gelirGider.netKar >= 0 ? 'text-blue-600' : 'text-orange-600'
+                    (() => {
+                      const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                      const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam: number, ayVeri: any) => {
+                        const hesaplananToplamGider = ayVeri.gider + (ayVeri.gider / 5) - (ayVeri.gider / 25);
+                        const tevkifat = ayVeri.tevkifat;
+                        return toplam + tevkifat + hesaplananToplamGider;
+                      }, 0);
+                      const netKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                      return netKar >= 0 ? 'text-blue-600' : 'text-orange-600';
+                    })()
                   }`}>
-                    {formatTutar(bilancoVerisi.gelirGider.netKar)}
+                    {(() => {
+                      const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                      const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam: number, ayVeri: any) => {
+                        const hesaplananToplamGider = ayVeri.gider + (ayVeri.gider / 5) - (ayVeri.gider / 25);
+                        const tevkifat = ayVeri.tevkifat;
+                        return toplam + tevkifat + hesaplananToplamGider;
+                      }, 0);
+                      const netKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                      return formatTutar(netKar);
+                    })()}
                   </p>
                 </div>
                 
                 <div className="text-center p-4 bg-gray-50 rounded">
                   <p className="text-sm text-gray-600">Kar Marjı</p>
                   <p className="text-xl font-bold text-gray-600">
-                    %{bilancoVerisi.gelirGider.karMarji}
+                    %{(() => {
+                      const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                      const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam: number, ayVeri: any) => {
+                        const hesaplananToplamGider = ayVeri.gider + (ayVeri.gider / 5) - (ayVeri.gider / 25);
+                        const tevkifat = ayVeri.tevkifat;
+                        return toplam + tevkifat + hesaplananToplamGider;
+                      }, 0);
+                      const netKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                      return toplamGelir > 0 ? ((netKar / toplamGelir) * 100).toFixed(2) : '0.00';
+                    })()}
                   </p>
                 </div>
               </div>

@@ -14,6 +14,18 @@ const hesaplaToplamFiyat = (sefer: any, birimFiyat: number): number => {
   return mt * birimFiyat;
 };
 
+// KDV hesapla (gelirin %20'si)
+const hesaplaKDV = (gelir: number): number => {
+  return gelir * 0.20; // %20 KDV
+};
+
+// KDV dahil gelir hesapla
+const hesaplaKDVDahilGelir = (sefer: any, birimFiyat: number): number => {
+  const temelGelir = hesaplaToplamFiyat(sefer, birimFiyat);
+  const kdv = hesaplaKDV(temelGelir);
+  return temelGelir + kdv;
+};
+
 export async function GET(request: NextRequest) {
   try {
     // Tüm seferler
@@ -24,18 +36,29 @@ export async function GET(request: NextRequest) {
       }
     });
 
-    // Toplam ciro hesaplaması - MT * Birim Fiyat formülü ile
-    const toplamCiro = tumSeferler.reduce((toplam, sefer) => {
+    // Toplam ciro hesaplaması - KDV dahil
+    const toplamCiroKDVHaric = tumSeferler.reduce((toplam, sefer) => {
       const toplamFiyat = hesaplaToplamFiyat(sefer, sefer.sirketten_alinan_ucret);
       return toplam + toplamFiyat;
     }, 0);
 
+    // KDV dahil toplam ciro hesapla
+    const toplamCiroKDVDahil = tumSeferler.reduce((toplam, sefer) => {
+      const kdvDahilFiyat = hesaplaKDVDahilGelir(sefer, sefer.sirketten_alinan_ucret);
+      return toplam + kdvDahilFiyat;
+    }, 0);
+
+    const toplamKDV = toplamCiroKDVDahil - toplamCiroKDVHaric;
+
     return NextResponse.json({
-      toplamCiro,
+      toplamCiro: toplamCiroKDVDahil, // Artık KDV dahil ciro döndürüyoruz
+      toplamCiroKDVHaric: toplamCiroKDVHaric, // KDV hariç değer de mevcut
+      toplamKDV: toplamKDV, // KDV tutarı
       seferSayisi: tumSeferler.length,
       hesaplamaNotlari: {
         genel: 'Hesaplamalar MT × Birim Fiyat formülü ile yapılmıştır',
-        yapIstanbulOzel: 'YAP-İstanbul (ID: 2) için birim fiyat = toplam fiyat olarak hesaplanmıştır'
+        yapIstanbulOzel: 'YAP-İstanbul (ID: 2) için birim fiyat = toplam fiyat olarak hesaplanmıştır',
+        kdv: 'Ana ciro değeri KDV dahil, ayrıca KDV hariç değer de sunulmaktadır (%20 KDV)'
       }
     });
 
