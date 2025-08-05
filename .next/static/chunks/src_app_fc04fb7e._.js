@@ -1228,7 +1228,15 @@ function SirketBilanco() {
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                             className: "text-xl font-bold text-red-600",
-                                                            children: formatTutar(bilancoVerisi.gelirGider.toplamGider + (bilancoVerisi.gelirGider.toplamSoforKDV || 0) + (bilancoVerisi.gelirGider.toplamTevkifat || 0))
+                                                            children: (()=>{
+                                                                // Aylık performans tablosundaki Tevkifat + Toplam Gider toplamını hesapla
+                                                                const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam, ayVeri)=>{
+                                                                    const hesaplananToplamGider = ayVeri.gider + ayVeri.gider / 5 - ayVeri.gider / 25;
+                                                                    const tevkifat = ayVeri.tevkifat;
+                                                                    return toplam + tevkifat + hesaplananToplamGider;
+                                                                }, 0);
+                                                                return formatTutar(aylikTevkifatVeGiderToplami);
+                                                            })()
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
                                                             lineNumber: 531,
@@ -1241,31 +1249,68 @@ function SirketBilanco() {
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: `text-center p-4 rounded ${bilancoVerisi.gelirGider.netKar >= 0 ? 'bg-blue-50' : 'bg-orange-50'}`,
+                                                    className: `text-center p-4 rounded ${(()=>{
+                                                        // Net kar hesaplaması için doğru gider değerini kullan
+                                                        const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                                                        const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam, ayVeri)=>{
+                                                            const hesaplananToplamGider = ayVeri.gider + ayVeri.gider / 5 - ayVeri.gider / 25;
+                                                            const tevkifat = ayVeri.tevkifat;
+                                                            return toplam + tevkifat + hesaplananToplamGider;
+                                                        }, 0);
+                                                        const netKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                                                        return netKar >= 0 ? 'bg-blue-50' : 'bg-orange-50';
+                                                    })()}`,
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                             className: "text-sm text-gray-600",
                                                             children: [
                                                                 "Net ",
-                                                                bilancoVerisi.gelirGider.netKar >= 0 ? 'Kar' : 'Zarar'
+                                                                (()=>{
+                                                                    const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                                                                    const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam, ayVeri)=>{
+                                                                        const hesaplananToplamGider = ayVeri.gider + ayVeri.gider / 5 - ayVeri.gider / 25;
+                                                                        const tevkifat = ayVeri.tevkifat;
+                                                                        return toplam + tevkifat + hesaplananToplamGider;
+                                                                    }, 0);
+                                                                    const netKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                                                                    return netKar >= 0 ? 'Kar' : 'Zarar';
+                                                                })()
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 539,
+                                                            lineNumber: 557,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                            className: `text-xl font-bold ${bilancoVerisi.gelirGider.netKar >= 0 ? 'text-blue-600' : 'text-orange-600'}`,
-                                                            children: formatTutar(bilancoVerisi.gelirGider.netKar)
+                                                            className: `text-xl font-bold ${(()=>{
+                                                                const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                                                                const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam, ayVeri)=>{
+                                                                    const hesaplananToplamGider = ayVeri.gider + ayVeri.gider / 5 - ayVeri.gider / 25;
+                                                                    const tevkifat = ayVeri.tevkifat;
+                                                                    return toplam + tevkifat + hesaplananToplamGider;
+                                                                }, 0);
+                                                                const netKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                                                                return netKar >= 0 ? 'text-blue-600' : 'text-orange-600';
+                                                            })()}`,
+                                                            children: (()=>{
+                                                                const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                                                                const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam, ayVeri)=>{
+                                                                    const hesaplananToplamGider = ayVeri.gider + ayVeri.gider / 5 - ayVeri.gider / 25;
+                                                                    const tevkifat = ayVeri.tevkifat;
+                                                                    return toplam + tevkifat + hesaplananToplamGider;
+                                                                }, 0);
+                                                                const netKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                                                                return formatTutar(netKar);
+                                                            })()
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 540,
+                                                            lineNumber: 567,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 536,
+                                                    lineNumber: 544,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1276,24 +1321,33 @@ function SirketBilanco() {
                                                             children: "Kar Marjı"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 548,
+                                                            lineNumber: 593,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                             className: "text-xl font-bold text-gray-600",
                                                             children: [
                                                                 "%",
-                                                                bilancoVerisi.gelirGider.karMarji
+                                                                (()=>{
+                                                                    const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                                                                    const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam, ayVeri)=>{
+                                                                        const hesaplananToplamGider = ayVeri.gider + ayVeri.gider / 5 - ayVeri.gider / 25;
+                                                                        const tevkifat = ayVeri.tevkifat;
+                                                                        return toplam + tevkifat + hesaplananToplamGider;
+                                                                    }, 0);
+                                                                    const netKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                                                                    return toplamGelir > 0 ? (netKar / toplamGelir * 100).toFixed(2) : '0.00';
+                                                                })()
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 549,
+                                                            lineNumber: 594,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 547,
+                                                    lineNumber: 592,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
