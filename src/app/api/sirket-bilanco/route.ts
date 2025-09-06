@@ -118,6 +118,23 @@ export async function GET(request: NextRequest) {
       const toplamGiderVeTevkifat = toplamGider + toplamSoforKDV + toplamTevkifat;
       const netKar = (toplamGelir + toplamKDV) - toplamGiderVeTevkifat;
 
+      // KDV hesaplama - (Toplam Gelir - Toplam Şöför Fatura Ücreti) × 0.2
+      const toplamSoforFaturaUcreti = tumSeferler.reduce((toplam, sefer) => {
+        if (sefer.sofor_fatura_ucreti && sefer.sofor_fatura_ucreti > 0) {
+          const faturaToplamFiyat = hesaplaToplamFiyat(sefer, sefer.sofor_fatura_ucreti);
+          return toplam + faturaToplamFiyat;
+        }
+        return toplam;
+      }, 0);
+      
+      const kdvHesaplama = (toplamGelir - toplamSoforFaturaUcreti) * 0.2;
+      
+      // Yıllık Vergi hesaplama - (Toplam Gelir - Toplam Şöför Fatura Ücreti) × 0.25
+      const yillikVergiHesaplama = (toplamGelir - toplamSoforFaturaUcreti) * 0.25;
+      
+      // KAR hesaplama - Net Kar - KDV - Yıllık Vergi
+      const karHesaplama = netKar - kdvHesaplama - yillikVergiHesaplama;
+
       // Şirket bazında dağılım
       const sirketBazindaVeriler = tumSirketler.map(sirket => {
         // Şirket seferlerini al (tüm seferler dahil - araç filtresi kaldırıldı)
@@ -253,7 +270,11 @@ export async function GET(request: NextRequest) {
           toplamTevkifat,
           toplamGiderVeTevkifat,
           netKar,
-          karMarji: (toplamGelir + toplamKDV) > 0 ? ((netKar / (toplamGelir + toplamKDV)) * 100).toFixed(2) : '0'
+          karMarji: (toplamGelir + toplamKDV) > 0 ? ((netKar / (toplamGelir + toplamKDV)) * 100).toFixed(2) : '0',
+          kdvHesaplama,
+          yillikVergiHesaplama,
+          karHesaplama,
+          toplamSoforFaturaUcreti
         },
         seferler: {
           toplamSeferSayisi: tumSeferler.length,

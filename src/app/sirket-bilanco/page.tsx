@@ -21,6 +21,10 @@ interface BilancoVerisi {
     toplamKDV?: number;
     toplamSoforKDV?: number;
     toplamGiderVeTevkifat?: number;
+    kdvHesaplama?: number;
+    yillikVergiHesaplama?: number;
+    karHesaplama?: number;
+    toplamSoforFaturaUcreti?: number;
   };
   seferler: {
     toplamSeferSayisi: number;
@@ -328,14 +332,90 @@ export default function SirketBilanco() {
             {bilancoVerisi.genel && bilancoVerisi.sirketler && (
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-xl font-semibold mb-4">Genel Bilgiler</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                   <div className="text-center">
-                    <h3 className="text-lg font-semibold text-blue-600">Toplam Şirket</h3>
-                    <p className="text-2xl font-bold">{bilancoVerisi.sirketler.toplamSirketSayisi}</p>
+                    <h3 className="text-base font-semibold text-blue-600">Toplam Şirket</h3>
+                    <p className="text-lg font-bold">{bilancoVerisi.sirketler.toplamSirketSayisi}</p>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-lg font-semibold text-purple-600">Toplam Sefer</h3>
-                    <p className="text-2xl font-bold">{bilancoVerisi.seferler.toplamSeferSayisi}</p>
+                    <h3 className="text-base font-semibold text-purple-600">Toplam Sefer</h3>
+                    <p className="text-lg font-bold">{bilancoVerisi.seferler.toplamSeferSayisi}</p>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-base font-semibold text-orange-600">KDV</h3>
+                    <p className="text-lg font-bold text-orange-600">
+                      {bilancoVerisi.gelirGider.kdvHesaplama !== undefined 
+                        ? formatTutar(bilancoVerisi.gelirGider.kdvHesaplama)
+                        : '-'
+                      }
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-base font-semibold text-orange-600">Yıllık Vergi</h3>
+                    <p className="text-lg font-bold text-orange-600">
+                      {bilancoVerisi.gelirGider.yillikVergiHesaplama !== undefined 
+                        ? formatTutar(bilancoVerisi.gelirGider.yillikVergiHesaplama)
+                        : '-'
+                      }
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <h3 className={`text-base font-semibold ${
+                      (() => {
+                        // Frontend'teki Net Kar hesaplaması
+                        const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                        const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam: number, ayVeri: any) => {
+                          const hesaplananToplamGider = ayVeri.gider + (ayVeri.gider / 5) - (ayVeri.gider / 25);
+                          const tevkifat = ayVeri.tevkifat;
+                          return toplam + tevkifat + hesaplananToplamGider;
+                        }, 0);
+                        const frontendNetKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                        
+                        // KAR = Frontend Net Kar - KDV - Yıllık Vergi
+                        const kdv = bilancoVerisi.gelirGider.kdvHesaplama || 0;
+                        const yillikVergi = bilancoVerisi.gelirGider.yillikVergiHesaplama || 0;
+                        const kar = frontendNetKar - kdv - yillikVergi;
+                        
+                        return kar >= 0 ? 'text-green-600' : 'text-red-600';
+                      })()
+                    }`}>KAR</h3>
+                    <p className={`text-lg font-bold ${
+                      (() => {
+                        // Frontend'teki Net Kar hesaplaması
+                        const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                        const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam: number, ayVeri: any) => {
+                          const hesaplananToplamGider = ayVeri.gider + (ayVeri.gider / 5) - (ayVeri.gider / 25);
+                          const tevkifat = ayVeri.tevkifat;
+                          return toplam + tevkifat + hesaplananToplamGider;
+                        }, 0);
+                        const frontendNetKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                        
+                        // KAR = Frontend Net Kar - KDV - Yıllık Vergi
+                        const kdv = bilancoVerisi.gelirGider.kdvHesaplama || 0;
+                        const yillikVergi = bilancoVerisi.gelirGider.yillikVergiHesaplama || 0;
+                        const kar = frontendNetKar - kdv - yillikVergi;
+                        
+                        return kar >= 0 ? 'text-green-600' : 'text-red-600';
+                      })()
+                    }`}>
+                      {(() => {
+                        // Frontend'teki Net Kar hesaplaması
+                        const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                        const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam: number, ayVeri: any) => {
+                          const hesaplananToplamGider = ayVeri.gider + (ayVeri.gider / 5) - (ayVeri.gider / 25);
+                          const tevkifat = ayVeri.tevkifat;
+                          return toplam + tevkifat + hesaplananToplamGider;
+                        }, 0);
+                        const frontendNetKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                        
+                        // KAR = Frontend Net Kar - KDV - Yıllık Vergi
+                        const kdv = bilancoVerisi.gelirGider.kdvHesaplama || 0;
+                        const yillikVergi = bilancoVerisi.gelirGider.yillikVergiHesaplama || 0;
+                        const kar = frontendNetKar - kdv - yillikVergi;
+                        
+                        return formatTutar(kar);
+                      })()}
+                    </p>
                   </div>
                 </div>
               </div>

@@ -347,7 +347,7 @@ function SirketBilanco() {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$components$2f$Sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                lineNumber: 210,
+                lineNumber: 214,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -362,12 +362,12 @@ function SirketBilanco() {
                                 children: genelGorunumAktif ? 'Genel Finansal Durum' : 'Şirket Bilanço'
                             }, void 0, false, {
                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                lineNumber: 217,
+                                lineNumber: 221,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                            lineNumber: 216,
+                            lineNumber: 220,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -381,7 +381,7 @@ function SirketBilanco() {
                                             children: "Filtreler"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 225,
+                                            lineNumber: 229,
                                             columnNumber: 13
                                         }, this),
                                         !genelGorunumAktif && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -390,13 +390,13 @@ function SirketBilanco() {
                                             children: "Genel Görünüme Dön"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 227,
+                                            lineNumber: 231,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                    lineNumber: 224,
+                                    lineNumber: 228,
                                     columnNumber: 11
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -409,7 +409,7 @@ function SirketBilanco() {
                                                     children: "Şirket Seçin"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 238,
+                                                    lineNumber: 242,
                                                     columnNumber: 15
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -422,7 +422,7 @@ function SirketBilanco() {
                                                             children: "Şirket Seçin"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 246,
+                                                            lineNumber: 250,
                                                             columnNumber: 17
                                                         }, this),
                                                         sirketler.map((sirket)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -430,19 +430,19 @@ function SirketBilanco() {
                                                                 children: sirket.sirket_adi
                                                             }, sirket.sirket_id, false, {
                                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                lineNumber: 248,
+                                                                lineNumber: 252,
                                                                 columnNumber: 19
                                                             }, this))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 241,
+                                                    lineNumber: 245,
                                                     columnNumber: 15
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 237,
+                                            lineNumber: 241,
                                             columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -452,7 +452,7 @@ function SirketBilanco() {
                                                     children: "Ay (Opsiyonel)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 256,
+                                                    lineNumber: 260,
                                                     columnNumber: 15
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -465,7 +465,7 @@ function SirketBilanco() {
                                                             children: "Tüm Aylar"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 264,
+                                                            lineNumber: 268,
                                                             columnNumber: 17
                                                         }, this),
                                                         aylar.map((ay)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -473,19 +473,19 @@ function SirketBilanco() {
                                                                 children: ay.label
                                                             }, ay.value, false, {
                                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                lineNumber: 266,
+                                                                lineNumber: 270,
                                                                 columnNumber: 19
                                                             }, this))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 259,
+                                                    lineNumber: 263,
                                                     columnNumber: 15
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 255,
+                                            lineNumber: 259,
                                             columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -495,7 +495,7 @@ function SirketBilanco() {
                                                     children: "Dönem (Opsiyonel)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 274,
+                                                    lineNumber: 278,
                                                     columnNumber: 15
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -508,7 +508,7 @@ function SirketBilanco() {
                                                             children: "Tüm Dönemler"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 282,
+                                                            lineNumber: 286,
                                                             columnNumber: 17
                                                         }, this),
                                                         donemler.map((donem)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -516,19 +516,19 @@ function SirketBilanco() {
                                                                 children: donem.label
                                                             }, donem.value, false, {
                                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                lineNumber: 284,
+                                                                lineNumber: 288,
                                                                 columnNumber: 19
                                                             }, this))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 277,
+                                                    lineNumber: 281,
                                                     columnNumber: 15
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 273,
+                                            lineNumber: 277,
                                             columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -540,18 +540,18 @@ function SirketBilanco() {
                                                 children: yukleniyor ? 'Yükleniyor...' : 'Detaylı Bilanço Getir'
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                lineNumber: 292,
+                                                lineNumber: 296,
                                                 columnNumber: 15
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 291,
+                                            lineNumber: 295,
                                             columnNumber: 13
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                    lineNumber: 236,
+                                    lineNumber: 240,
                                     columnNumber: 11
                                 }, this),
                                 hata && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -559,13 +559,13 @@ function SirketBilanco() {
                                     children: hata
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                    lineNumber: 303,
+                                    lineNumber: 307,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                            lineNumber: 223,
+                            lineNumber: 227,
                             columnNumber: 9
                         }, this),
                         bilancoVerisi && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -579,7 +579,7 @@ function SirketBilanco() {
                                             children: "Şirket Bilgileri"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 315,
+                                            lineNumber: 319,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -592,7 +592,7 @@ function SirketBilanco() {
                                                             children: "Şirket Adı:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 318,
+                                                            lineNumber: 322,
                                                             columnNumber: 21
                                                         }, this),
                                                         " ",
@@ -600,7 +600,7 @@ function SirketBilanco() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 317,
+                                                    lineNumber: 321,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -610,7 +610,7 @@ function SirketBilanco() {
                                                             children: "Vergi Numarası:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 321,
+                                                            lineNumber: 325,
                                                             columnNumber: 21
                                                         }, this),
                                                         " ",
@@ -618,19 +618,19 @@ function SirketBilanco() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 320,
+                                                    lineNumber: 324,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 316,
+                                            lineNumber: 320,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                    lineNumber: 314,
+                                    lineNumber: 318,
                                     columnNumber: 15
                                 }, this),
                                 bilancoVerisi.genel && bilancoVerisi.sirketler && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -641,51 +641,26 @@ function SirketBilanco() {
                                             children: "Genel Bilgiler"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 330,
+                                            lineNumber: 334,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "grid grid-cols-1 md:grid-cols-2 gap-4",
+                                            className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "text-center",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                            className: "text-lg font-semibold text-blue-600",
+                                                            className: "text-base font-semibold text-blue-600",
                                                             children: "Toplam Şirket"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 333,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                            className: "text-2xl font-bold",
-                                                            children: bilancoVerisi.sirketler.toplamSirketSayisi
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 334,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 332,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "text-center",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                            className: "text-lg font-semibold text-purple-600",
-                                                            children: "Toplam Sefer"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
                                                             lineNumber: 337,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                            className: "text-2xl font-bold",
-                                                            children: bilancoVerisi.seferler.toplamSeferSayisi
+                                                            className: "text-lg font-bold",
+                                                            children: bilancoVerisi.sirketler.toplamSirketSayisi
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
                                                             lineNumber: 338,
@@ -696,17 +671,159 @@ function SirketBilanco() {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
                                                     lineNumber: 336,
                                                     columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "text-center",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                            className: "text-base font-semibold text-purple-600",
+                                                            children: "Toplam Sefer"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                            lineNumber: 341,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-lg font-bold",
+                                                            children: bilancoVerisi.seferler.toplamSeferSayisi
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                            lineNumber: 342,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                    lineNumber: 340,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "text-center",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                            className: "text-base font-semibold text-orange-600",
+                                                            children: "KDV"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                            lineNumber: 345,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-lg font-bold text-orange-600",
+                                                            children: bilancoVerisi.gelirGider.kdvHesaplama !== undefined ? formatTutar(bilancoVerisi.gelirGider.kdvHesaplama) : '-'
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                            lineNumber: 346,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                    lineNumber: 344,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "text-center",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                            className: "text-base font-semibold text-orange-600",
+                                                            children: "Yıllık Vergi"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                            lineNumber: 354,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-lg font-bold text-orange-600",
+                                                            children: bilancoVerisi.gelirGider.yillikVergiHesaplama !== undefined ? formatTutar(bilancoVerisi.gelirGider.yillikVergiHesaplama) : '-'
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                            lineNumber: 355,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                    lineNumber: 353,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "text-center",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                            className: `text-base font-semibold ${(()=>{
+                                                                // Frontend'teki Net Kar hesaplaması
+                                                                const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                                                                const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam, ayVeri)=>{
+                                                                    const hesaplananToplamGider = ayVeri.gider + ayVeri.gider / 5 - ayVeri.gider / 25;
+                                                                    const tevkifat = ayVeri.tevkifat;
+                                                                    return toplam + tevkifat + hesaplananToplamGider;
+                                                                }, 0);
+                                                                const frontendNetKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                                                                // KAR = Frontend Net Kar - KDV - Yıllık Vergi
+                                                                const kdv = bilancoVerisi.gelirGider.kdvHesaplama || 0;
+                                                                const yillikVergi = bilancoVerisi.gelirGider.yillikVergiHesaplama || 0;
+                                                                const kar = frontendNetKar - kdv - yillikVergi;
+                                                                return kar >= 0 ? 'text-green-600' : 'text-red-600';
+                                                            })()}`,
+                                                            children: "KAR"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                            lineNumber: 363,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: `text-lg font-bold ${(()=>{
+                                                                // Frontend'teki Net Kar hesaplaması
+                                                                const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                                                                const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam, ayVeri)=>{
+                                                                    const hesaplananToplamGider = ayVeri.gider + ayVeri.gider / 5 - ayVeri.gider / 25;
+                                                                    const tevkifat = ayVeri.tevkifat;
+                                                                    return toplam + tevkifat + hesaplananToplamGider;
+                                                                }, 0);
+                                                                const frontendNetKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                                                                // KAR = Frontend Net Kar - KDV - Yıllık Vergi
+                                                                const kdv = bilancoVerisi.gelirGider.kdvHesaplama || 0;
+                                                                const yillikVergi = bilancoVerisi.gelirGider.yillikVergiHesaplama || 0;
+                                                                const kar = frontendNetKar - kdv - yillikVergi;
+                                                                return kar >= 0 ? 'text-green-600' : 'text-red-600';
+                                                            })()}`,
+                                                            children: (()=>{
+                                                                // Frontend'teki Net Kar hesaplaması
+                                                                const toplamGelir = bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0);
+                                                                const aylikTevkifatVeGiderToplami = bilancoVerisi.seferler.aylikDagitim.reduce((toplam, ayVeri)=>{
+                                                                    const hesaplananToplamGider = ayVeri.gider + ayVeri.gider / 5 - ayVeri.gider / 25;
+                                                                    const tevkifat = ayVeri.tevkifat;
+                                                                    return toplam + tevkifat + hesaplananToplamGider;
+                                                                }, 0);
+                                                                const frontendNetKar = toplamGelir - aylikTevkifatVeGiderToplami;
+                                                                // KAR = Frontend Net Kar - KDV - Yıllık Vergi
+                                                                const kdv = bilancoVerisi.gelirGider.kdvHesaplama || 0;
+                                                                const yillikVergi = bilancoVerisi.gelirGider.yillikVergiHesaplama || 0;
+                                                                const kar = frontendNetKar - kdv - yillikVergi;
+                                                                return formatTutar(kar);
+                                                            })()
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                            lineNumber: 382,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/sirket-bilanco/page.tsx",
+                                                    lineNumber: 362,
+                                                    columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 331,
+                                            lineNumber: 335,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                    lineNumber: 329,
+                                    lineNumber: 333,
                                     columnNumber: 15
                                 }, this),
                                 bilancoVerisi.genel && bilancoVerisi.sirketler && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -719,12 +836,12 @@ function SirketBilanco() {
                                                 children: "Şirket Bazında Performans"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                lineNumber: 348,
+                                                lineNumber: 428,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 347,
+                                            lineNumber: 427,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -741,7 +858,7 @@ function SirketBilanco() {
                                                                     children: "Şirket Adı"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 354,
+                                                                    lineNumber: 434,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -749,7 +866,7 @@ function SirketBilanco() {
                                                                     children: "Sefer Sayısı"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 357,
+                                                                    lineNumber: 437,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -757,7 +874,7 @@ function SirketBilanco() {
                                                                     children: "Toplam MT"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 360,
+                                                                    lineNumber: 440,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -765,7 +882,7 @@ function SirketBilanco() {
                                                                     children: "Toplam Gelir"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 363,
+                                                                    lineNumber: 443,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -773,7 +890,7 @@ function SirketBilanco() {
                                                                     children: "Tevkifat"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 366,
+                                                                    lineNumber: 446,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -781,7 +898,7 @@ function SirketBilanco() {
                                                                     children: "Toplam Gider"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 369,
+                                                                    lineNumber: 449,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -789,7 +906,7 @@ function SirketBilanco() {
                                                                     children: "Net Kar/Zarar"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 372,
+                                                                    lineNumber: 452,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -797,18 +914,18 @@ function SirketBilanco() {
                                                                     children: "Kar Marjı"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 375,
+                                                                    lineNumber: 455,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 353,
+                                                            lineNumber: 433,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                        lineNumber: 352,
+                                                        lineNumber: 432,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -825,13 +942,13 @@ function SirketBilanco() {
                                                                                 children: sirketVeri.ozelDurum
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                                lineNumber: 386,
+                                                                                lineNumber: 466,
                                                                                 columnNumber: 31
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 383,
+                                                                        lineNumber: 463,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -841,12 +958,12 @@ function SirketBilanco() {
                                                                             children: sirketVeri.seferSayisi
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                            lineNumber: 390,
+                                                                            lineNumber: 470,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 389,
+                                                                        lineNumber: 469,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -854,7 +971,7 @@ function SirketBilanco() {
                                                                         children: formatSayi(sirketVeri.toplamMT)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 394,
+                                                                        lineNumber: 474,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -866,13 +983,13 @@ function SirketBilanco() {
                                                                                 children: "KDV dahil"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                                lineNumber: 399,
+                                                                                lineNumber: 479,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 397,
+                                                                        lineNumber: 477,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -880,7 +997,7 @@ function SirketBilanco() {
                                                                         children: formatTutar(sirketVeri.tevkifat || 0)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 401,
+                                                                        lineNumber: 481,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -888,7 +1005,7 @@ function SirketBilanco() {
                                                                         children: formatTutar(sirketVeri.gider + sirketVeri.gider / 5 - sirketVeri.gider / 25)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 404,
+                                                                        lineNumber: 484,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -896,7 +1013,7 @@ function SirketBilanco() {
                                                                         children: formatTutar(sirketVeri.gelir + sirketVeri.kdv - sirketVeri.tevkifat - (sirketVeri.gider + sirketVeri.gider / 5 - sirketVeri.gider / 25))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 407,
+                                                                        lineNumber: 487,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -909,40 +1026,40 @@ function SirketBilanco() {
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                            lineNumber: 413,
+                                                                            lineNumber: 493,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 412,
+                                                                        lineNumber: 492,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, index, true, {
                                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                lineNumber: 382,
+                                                                lineNumber: 462,
                                                                 columnNumber: 25
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                        lineNumber: 380,
+                                                        lineNumber: 460,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                lineNumber: 351,
+                                                lineNumber: 431,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 350,
+                                            lineNumber: 430,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                    lineNumber: 346,
+                                    lineNumber: 426,
                                     columnNumber: 15
                                 }, this),
                                 bilancoVerisi.seferler.aylikDagitim.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -955,12 +1072,12 @@ function SirketBilanco() {
                                                 children: "Aylık Performans"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                lineNumber: 431,
+                                                lineNumber: 511,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 430,
+                                            lineNumber: 510,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -977,7 +1094,7 @@ function SirketBilanco() {
                                                                     children: "Ay"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 437,
+                                                                    lineNumber: 517,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -985,7 +1102,7 @@ function SirketBilanco() {
                                                                     children: "Sefer Sayısı"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 440,
+                                                                    lineNumber: 520,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -993,7 +1110,7 @@ function SirketBilanco() {
                                                                     children: "Toplam MT"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 443,
+                                                                    lineNumber: 523,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1001,7 +1118,7 @@ function SirketBilanco() {
                                                                     children: "Toplam Gelir"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 446,
+                                                                    lineNumber: 526,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1009,7 +1126,7 @@ function SirketBilanco() {
                                                                     children: "Tevkifat"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 449,
+                                                                    lineNumber: 529,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1017,7 +1134,7 @@ function SirketBilanco() {
                                                                     children: "Toplam Gider"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 452,
+                                                                    lineNumber: 532,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1025,7 +1142,7 @@ function SirketBilanco() {
                                                                     children: "Net Kar/Zarar"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 455,
+                                                                    lineNumber: 535,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1033,18 +1150,18 @@ function SirketBilanco() {
                                                                     children: "Kar Marjı"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                    lineNumber: 458,
+                                                                    lineNumber: 538,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 436,
+                                                            lineNumber: 516,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                        lineNumber: 435,
+                                                        lineNumber: 515,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -1062,7 +1179,7 @@ function SirketBilanco() {
                                                                         children: getAyAdi(ayVeri.ay)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 472,
+                                                                        lineNumber: 552,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1072,12 +1189,12 @@ function SirketBilanco() {
                                                                             children: ayVeri.seferSayisi
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                            lineNumber: 476,
+                                                                            lineNumber: 556,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 475,
+                                                                        lineNumber: 555,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1085,7 +1202,7 @@ function SirketBilanco() {
                                                                         children: formatSayi(ayVeri.toplamMT)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 480,
+                                                                        lineNumber: 560,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1097,13 +1214,13 @@ function SirketBilanco() {
                                                                                 children: "KDV dahil"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                                lineNumber: 485,
+                                                                                lineNumber: 565,
                                                                                 columnNumber: 31
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 483,
+                                                                        lineNumber: 563,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1111,7 +1228,7 @@ function SirketBilanco() {
                                                                         children: formatTutar(ayVeri.tevkifat)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 487,
+                                                                        lineNumber: 567,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1119,7 +1236,7 @@ function SirketBilanco() {
                                                                         children: formatTutar(hesaplananToplamGider)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 491,
+                                                                        lineNumber: 571,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1127,7 +1244,7 @@ function SirketBilanco() {
                                                                         children: formatTutar(ayVeri.gelir + ayVeri.kdv - ayVeri.tevkifat - (ayVeri.gider + ayVeri.gider / 5 - ayVeri.gider / 25))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 494,
+                                                                        lineNumber: 574,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1140,41 +1257,41 @@ function SirketBilanco() {
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                            lineNumber: 500,
+                                                                            lineNumber: 580,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                        lineNumber: 499,
+                                                                        lineNumber: 579,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, index, true, {
                                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                                lineNumber: 471,
+                                                                lineNumber: 551,
                                                                 columnNumber: 27
                                                             }, this);
                                                         })
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                        lineNumber: 463,
+                                                        lineNumber: 543,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                lineNumber: 434,
+                                                lineNumber: 514,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 433,
+                                            lineNumber: 513,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                    lineNumber: 429,
+                                    lineNumber: 509,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1185,7 +1302,7 @@ function SirketBilanco() {
                                             children: bilancoVerisi.genel ? 'Genel Finansal Özet' : 'Şirket Finansal Özet'
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 517,
+                                            lineNumber: 597,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1199,7 +1316,7 @@ function SirketBilanco() {
                                                             children: "Toplam Gelir"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 523,
+                                                            lineNumber: 603,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1207,13 +1324,13 @@ function SirketBilanco() {
                                                             children: formatTutar(bilancoVerisi.gelirGider.toplamGelir + (bilancoVerisi.gelirGider.toplamKDV || 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 524,
+                                                            lineNumber: 604,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 522,
+                                                    lineNumber: 602,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1224,7 +1341,7 @@ function SirketBilanco() {
                                                             children: "Toplam Gider"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 530,
+                                                            lineNumber: 610,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1240,13 +1357,13 @@ function SirketBilanco() {
                                                             })()
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 531,
+                                                            lineNumber: 611,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 529,
+                                                    lineNumber: 609,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1279,7 +1396,7 @@ function SirketBilanco() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 557,
+                                                            lineNumber: 637,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1305,13 +1422,13 @@ function SirketBilanco() {
                                                             })()
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 567,
+                                                            lineNumber: 647,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 544,
+                                                    lineNumber: 624,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1322,7 +1439,7 @@ function SirketBilanco() {
                                                             children: "Kar Marjı"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 593,
+                                                            lineNumber: 673,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1342,48 +1459,48 @@ function SirketBilanco() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                            lineNumber: 594,
+                                                            lineNumber: 674,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                                    lineNumber: 592,
+                                                    lineNumber: 672,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                            lineNumber: 521,
+                                            lineNumber: 601,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                                    lineNumber: 516,
+                                    lineNumber: 596,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                            lineNumber: 311,
+                            lineNumber: 315,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                    lineNumber: 214,
+                    lineNumber: 218,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-                lineNumber: 213,
+                lineNumber: 217,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/sirket-bilanco/page.tsx",
-        lineNumber: 208,
+        lineNumber: 212,
         columnNumber: 5
     }, this);
 }

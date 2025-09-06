@@ -1258,7 +1258,8 @@ function SoforBilanco() {
                                                     3,
                                                     5,
                                                     7,
-                                                    8
+                                                    8,
+                                                    13
                                                 ].map((istenenAracId, index)=>{
                                                     const aracVeri = raporVerisi.aracBazindaAylikVeriler.find((arac)=>arac.arac_id === istenenAracId);
                                                     if (!aracVeri) {
@@ -1335,6 +1336,8 @@ function SoforBilanco() {
                                                                         sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                                                                     } else if (aracVeri.arac_id === 8) {
                                                                         sirketPayi = yillikToplam / 6; // Yıllık Toplam/6
+                                                                    } else if (aracVeri.arac_id === 13) {
+                                                                        sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                                                                     }
                                                                     return sirketPayi > 0 ? 'text-blue-600' : 'text-gray-500';
                                                                 })()}`,
@@ -1350,6 +1353,8 @@ function SoforBilanco() {
                                                                         sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                                                                     } else if (aracVeri.arac_id === 8) {
                                                                         sirketPayi = yillikToplam / 6; // Yıllık Toplam/6
+                                                                    } else if (aracVeri.arac_id === 13) {
+                                                                        sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                                                                     }
                                                                     return formatTutar(sirketPayi);
                                                                 })()
@@ -1373,7 +1378,7 @@ function SoforBilanco() {
                                                             children: "SEÇİLİ ARAÇLAR TOPLAMI"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                            lineNumber: 588,
+                                                            lineNumber: 592,
                                                             columnNumber: 23
                                                         }, this),
                                                         [
@@ -1394,7 +1399,8 @@ function SoforBilanco() {
                                                                 3,
                                                                 5,
                                                                 7,
-                                                                8
+                                                                8,
+                                                                13
                                                             ].reduce((toplam, aracId)=>{
                                                                 const aracVeri = raporVerisi.aracBazindaAylikVeriler.find((arac)=>arac.arac_id === aracId);
                                                                 return toplam + (aracVeri?.aylikVeriler[ay]?.kar || 0);
@@ -1404,7 +1410,7 @@ function SoforBilanco() {
                                                                 children: formatTutar(aylikToplam)
                                                             }, ay, false, {
                                                                 fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                                lineNumber: 598,
+                                                                lineNumber: 602,
                                                                 columnNumber: 27
                                                             }, this);
                                                         }),
@@ -1414,7 +1420,8 @@ function SoforBilanco() {
                                                                     3,
                                                                     5,
                                                                     7,
-                                                                    8
+                                                                    8,
+                                                                    13
                                                                 ].reduce((toplam, aracId)=>{
                                                                     const aracVeri = raporVerisi.aracBazindaAylikVeriler.find((arac)=>arac.arac_id === aracId);
                                                                     return toplam + (aracVeri?.yillikToplam.kar || 0);
@@ -1425,14 +1432,15 @@ function SoforBilanco() {
                                                                 3,
                                                                 5,
                                                                 7,
-                                                                8
+                                                                8,
+                                                                13
                                                             ].reduce((toplam, aracId)=>{
                                                                 const aracVeri = raporVerisi.aracBazindaAylikVeriler.find((arac)=>arac.arac_id === aracId);
                                                                 return toplam + (aracVeri?.yillikToplam.kar || 0);
                                                             }, 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                            lineNumber: 606,
+                                                            lineNumber: 610,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1441,7 +1449,8 @@ function SoforBilanco() {
                                                                 3,
                                                                 5,
                                                                 7,
-                                                                8
+                                                                8,
+                                                                13
                                                             ].reduce((toplam, aracId)=>{
                                                                 const aracVeri = raporVerisi.aracBazindaAylikVeriler.find((arac)=>arac.arac_id === aracId);
                                                                 if (!aracVeri) return toplam;
@@ -1456,18 +1465,20 @@ function SoforBilanco() {
                                                                     sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                                                                 } else if (aracVeri.arac_id === 8) {
                                                                     sirketPayi = yillikToplam / 6; // Yıllık Toplam/6
+                                                                } else if (aracVeri.arac_id === 13) {
+                                                                    sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                                                                 }
                                                                 return toplam + sirketPayi;
                                                             }, 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                            lineNumber: 621,
+                                                            lineNumber: 625,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                    lineNumber: 587,
+                                                    lineNumber: 591,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
@@ -1500,7 +1511,7 @@ function SoforBilanco() {
                                     children: "Araçlar Bazında Detaylı Hesaplamalar"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                    lineNumber: 653,
+                                    lineNumber: 659,
                                     columnNumber: 15
                                 }, this),
                                 raporVerisi.aracBazindaAylikVeriler.map((arac)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1515,7 +1526,7 @@ function SoforBilanco() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                lineNumber: 657,
+                                                lineNumber: 663,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1529,7 +1540,7 @@ function SoforBilanco() {
                                                                 children: "Yıllık Gelir"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                                lineNumber: 662,
+                                                                lineNumber: 668,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1537,13 +1548,13 @@ function SoforBilanco() {
                                                                 children: formatTutar(arac.yillikToplam.gelir)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                                lineNumber: 663,
+                                                                lineNumber: 669,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                        lineNumber: 661,
+                                                        lineNumber: 667,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1554,7 +1565,7 @@ function SoforBilanco() {
                                                                 children: "Yıllık Gider"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                                lineNumber: 666,
+                                                                lineNumber: 672,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1562,13 +1573,13 @@ function SoforBilanco() {
                                                                 children: formatTutar(arac.yillikToplam.gider)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                                lineNumber: 667,
+                                                                lineNumber: 673,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                        lineNumber: 665,
+                                                        lineNumber: 671,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1579,7 +1590,7 @@ function SoforBilanco() {
                                                                 children: "Yıllık Kar/Zarar"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                                lineNumber: 670,
+                                                                lineNumber: 676,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1587,32 +1598,32 @@ function SoforBilanco() {
                                                                 children: formatTutar(arac.yillikToplam.kar)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                                lineNumber: 671,
+                                                                lineNumber: 677,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                        lineNumber: 669,
+                                                        lineNumber: 675,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                lineNumber: 660,
+                                                lineNumber: 666,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DetayliHesaplamalar, {
                                                 arac: arac
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                lineNumber: 677,
+                                                lineNumber: 683,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, arac.arac_id, true, {
                                         fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                        lineNumber: 656,
+                                        lineNumber: 662,
                                         columnNumber: 17
                                     }, this)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1623,7 +1634,7 @@ function SoforBilanco() {
                                             children: "Hesaplama Notları"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                            lineNumber: 683,
+                                            lineNumber: 689,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1633,39 +1644,39 @@ function SoforBilanco() {
                                                     children: raporVerisi.hesaplamaNotlari.kdv
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                    lineNumber: 685,
+                                                    lineNumber: 691,
                                                     columnNumber: 19
                                                 }, this),
                                                 raporVerisi.hesaplamaNotlari.tevkifat && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: raporVerisi.hesaplamaNotlari.tevkifat
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                    lineNumber: 687,
+                                                    lineNumber: 693,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                     children: raporVerisi.hesaplamaNotlari.formul
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                                    lineNumber: 689,
+                                                    lineNumber: 695,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                            lineNumber: 684,
+                                            lineNumber: 690,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                                    lineNumber: 682,
+                                    lineNumber: 688,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/sofor-bilanco/page.tsx",
-                            lineNumber: 652,
+                            lineNumber: 658,
                             columnNumber: 13
                         }, this)
                     ]
