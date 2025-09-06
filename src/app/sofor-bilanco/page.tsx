@@ -507,7 +507,7 @@ export default function SoforBilanco() {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {[3, 5, 7, 8].map((istenenAracId, index) => {
+                    {[3, 5, 7, 8, 13].map((istenenAracId, index) => {
                       const aracVeri = raporVerisi.aracBazindaAylikVeriler.find(arac => arac.arac_id === istenenAracId);
                       
                       if (!aracVeri) {
@@ -556,6 +556,8 @@ export default function SoforBilanco() {
                                 sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                               } else if (aracVeri.arac_id === 8) {
                                 sirketPayi = yillikToplam / 6; // Yıllık Toplam/6
+                              } else if (aracVeri.arac_id === 13) {
+                                sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                               }
                               
                               return sirketPayi > 0 ? 'text-blue-600' : 'text-gray-500';
@@ -574,6 +576,8 @@ export default function SoforBilanco() {
                                 sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                               } else if (aracVeri.arac_id === 8) {
                                 sirketPayi = yillikToplam / 6; // Yıllık Toplam/6
+                              } else if (aracVeri.arac_id === 13) {
+                                sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                               }
                               
                               return formatTutar(sirketPayi);
@@ -589,7 +593,7 @@ export default function SoforBilanco() {
                         SEÇİLİ ARAÇLAR TOPLAMI
                       </td>
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((ay) => {
-                        const aylikToplam = [3, 5, 7, 8].reduce((toplam, aracId) => {
+                        const aylikToplam = [3, 5, 7, 8, 13].reduce((toplam, aracId) => {
                           const aracVeri = raporVerisi.aracBazindaAylikVeriler.find(arac => arac.arac_id === aracId);
                           return toplam + (aracVeri?.aylikVeriler[ay]?.kar || 0);
                         }, 0);
@@ -605,7 +609,7 @@ export default function SoforBilanco() {
                       })}
                       <td className={`px-2 py-2 whitespace-nowrap text-xs text-center bg-purple-100 border-l-2 border-purple-300 ${
                         (() => {
-                          const yillikToplam = [3, 5, 7, 8].reduce((toplam, aracId) => {
+                          const yillikToplam = [3, 5, 7, 8, 13].reduce((toplam, aracId) => {
                             const aracVeri = raporVerisi.aracBazindaAylikVeriler.find(arac => arac.arac_id === aracId);
                             return toplam + (aracVeri?.yillikToplam.kar || 0);
                           }, 0);
@@ -613,13 +617,13 @@ export default function SoforBilanco() {
                                  yillikToplam < 0 ? 'text-red-600' : 'text-gray-500';
                         })()
                       }`}>
-                        {formatTutar([3, 5, 7, 8].reduce((toplam, aracId) => {
+                        {formatTutar([3, 5, 7, 8, 13].reduce((toplam, aracId) => {
                           const aracVeri = raporVerisi.aracBazindaAylikVeriler.find(arac => arac.arac_id === aracId);
                           return toplam + (aracVeri?.yillikToplam.kar || 0);
                         }, 0))}
                       </td>
                       <td className={`px-2 py-2 whitespace-nowrap text-xs text-center bg-blue-100 border-l-2 border-blue-300 text-blue-600`}>
-                        {formatTutar([3, 5, 7, 8].reduce((toplam, aracId) => {
+                        {formatTutar([3, 5, 7, 8, 13].reduce((toplam, aracId) => {
                           const aracVeri = raporVerisi.aracBazindaAylikVeriler.find(arac => arac.arac_id === aracId);
                           if (!aracVeri) return toplam;
                           
@@ -635,6 +639,8 @@ export default function SoforBilanco() {
                             sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                           } else if (aracVeri.arac_id === 8) {
                             sirketPayi = yillikToplam / 6; // Yıllık Toplam/6
+                          } else if (aracVeri.arac_id === 13) {
+                            sirketPayi = yillikToplam / 2; // Yıllık Toplam/2
                           }
                           
                           return toplam + sirketPayi;
