@@ -120,44 +120,36 @@ export async function GET(request: NextRequest) {
 
       // Şirket bazında dağılım
       const sirketBazindaVeriler = tumSirketler.map(sirket => {
-        // Gelir hesaplaması için tüm şirket seferlerini al (arac_id filtresi YOK)
-        const sirketTumSeferleri = tumSeferler.filter(sefer => sefer.sirket_id === sirket.sirket_id);
-        
-        // Gider hesaplaması için sadece şirketin araçlarındaki seferleri al (arac_id filtresi VAR)
-        const sirketAracIds = sirketAracMapping[sirket.sirket_id] || [];
-        const sirketGiderSeferleri = tumSeferler.filter(sefer => 
-          sefer.sirket_id === sirket.sirket_id && 
-          sefer.arac_id && 
-          sirketAracIds.includes(sefer.arac_id)
-        );
+        // Şirket seferlerini al (tüm seferler dahil - araç filtresi kaldırıldı)
+        const sirketSeferleri = tumSeferler.filter(sefer => sefer.sirket_id === sirket.sirket_id);
         
         // Gelir hesaplamaları - Tüm seferler dahil
-        const sirketGelir = sirketTumSeferleri.reduce((toplam, sefer) => {
+        const sirketGelir = sirketSeferleri.reduce((toplam, sefer) => {
           const temelGelir = hesaplaToplamFiyat(sefer, sefer.sirketten_alinan_ucret);
           return toplam + temelGelir;
         }, 0);
         
         // Şirket KDV tutarını ayrı hesapla
-        const sirketKDV = sirketTumSeferleri.reduce((toplam, sefer) => {
+        const sirketKDV = sirketSeferleri.reduce((toplam, sefer) => {
           const temelGelir = hesaplaToplamFiyat(sefer, sefer.sirketten_alinan_ucret);
           const kdv = hesaplaKDV(temelGelir);
           return toplam + kdv;
         }, 0);
         
-        const sirketGider = sirketGiderSeferleri.reduce((toplam, sefer) => {
+        const sirketGider = sirketSeferleri.reduce((toplam, sefer) => {
           const toplamFiyat = hesaplaToplamFiyat(sefer, sefer.sofore_odenen_ucret);
           return toplam + toplamFiyat;
         }, 0);
         
         // Şirket şöför gider KDV'si
-        const sirketSoforKDV = sirketGiderSeferleri.reduce((toplam, sefer) => {
+        const sirketSoforKDV = sirketSeferleri.reduce((toplam, sefer) => {
           const gider = hesaplaToplamFiyat(sefer, sefer.sofore_odenen_ucret);
           const soforKdv = hesaplaKDV(gider);
           return toplam + soforKdv;
         }, 0);
 
         // Tüm şirketler için standart tevkifat hesaplaması
-        const sirketTevkifat = sirketTumSeferleri.reduce((toplam, sefer) => {
+        const sirketTevkifat = sirketSeferleri.reduce((toplam, sefer) => {
           // Sadece fatura fiyatı varsa tevkifat hesapla
           if (sefer.sofor_fatura_ucreti && sefer.sofor_fatura_ucreti > 0) {
             const faturaToplamFiyat = hesaplaToplamFiyat(sefer, sefer.sofor_fatura_ucreti);
@@ -166,7 +158,7 @@ export async function GET(request: NextRequest) {
           return toplam;
         }, 0);
 
-        const sirketMT = sirketTumSeferleri.reduce((toplam, sefer) => {
+        const sirketMT = sirketSeferleri.reduce((toplam, sefer) => {
           return toplam + (sefer.mt || 0);
         }, 0);
 
@@ -194,7 +186,7 @@ export async function GET(request: NextRequest) {
           tevkifat: sirketTevkifat,
           toplamGider: sirketToplamGider,
           netKar: (sirketGelir + sirketKDV) - sirketToplamGider,
-          seferSayisi: sirketTumSeferleri.length,
+          seferSayisi: sirketSeferleri.length,
           toplamMT: sirketMT,
           ozelDurum: sirket.sirket_id === 2 ? 'Birim fiyat = Toplam fiyat' : 'MT × Birim fiyat'
         };
@@ -216,28 +208,21 @@ export async function GET(request: NextRequest) {
           };
         }
         
-        // Gelir hesaplamaları - Tüm seferler dahil (arac_id filtresi YOK)
+        // Gelir hesaplamaları - Tüm seferler dahil
         const temelGelir = hesaplaToplamFiyat(sefer, sefer.sirketten_alinan_ucret);
         const kdv = hesaplaKDV(temelGelir);
         
-        // Gider hesaplamaları - Sadece şirketin araçlarındaki seferler (arac_id filtresi VAR)
-        const sirketAracIds = sirketAracMapping[sefer.sirket_id] || [];
-        const seferAracDahilMi = sefer.arac_id && sirketAracIds.includes(sefer.arac_id);
+        // Gider hesaplamaları - Tüm seferler dahil (araç filtresi kaldırıldı)
+        const giderToplamFiyat = hesaplaToplamFiyat(sefer, sefer.sofore_odenen_ucret);
+        const soforKdv = hesaplaKDV(giderToplamFiyat);
         
-        // Gelir her zaman dahil
+        // Gelir ve gider her zaman dahil
         acc[ay].gelir += temelGelir; // KDV hariç gelir
         acc[ay].kdv += kdv;
+        acc[ay].gider += giderToplamFiyat;
+        acc[ay].soforKdv += soforKdv;
         acc[ay].seferSayisi += 1;
         acc[ay].toplamMT += (sefer.mt || 0);
-        
-        // Gider sadece araç dahilse
-        if (seferAracDahilMi) {
-          const giderToplamFiyat = hesaplaToplamFiyat(sefer, sefer.sofore_odenen_ucret);
-          const soforKdv = hesaplaKDV(giderToplamFiyat);
-          
-          acc[ay].gider += giderToplamFiyat;
-          acc[ay].soforKdv += soforKdv;
-        }
         
         // Tevkifat hesapla - sadece fatura fiyatı varsa
         let seferTevkifat = 0;
@@ -323,13 +308,7 @@ export async function GET(request: NextRequest) {
       }
     });
 
-    // Gider hesaplaması için araç filtresi uygula
-    const sirketAracIds = sirketAracMapping[parseInt(sirketId)] || [];
-    const giderSeferleri = seferler.filter(sefer => 
-      sefer.arac_id && sirketAracIds.includes(sefer.arac_id)
-    );
-
-    // Bilanço hesaplamaları - Gelir tüm seferlerden, gider sadece araç dahilinden
+    // Bilanço hesaplamaları - Gelir ve gider tüm seferlerden (araç filtresi kaldırıldı)
     const toplamGelir = seferler.reduce((toplam, sefer) => {
       const temelGelir = hesaplaToplamFiyat(sefer, sefer.sirketten_alinan_ucret);
       return toplam + temelGelir;
@@ -342,13 +321,13 @@ export async function GET(request: NextRequest) {
       return toplam + kdv;
     }, 0);
     
-    const toplamGider = giderSeferleri.reduce((toplam, sefer) => {
+    const toplamGider = seferler.reduce((toplam, sefer) => {
       const toplamFiyat = hesaplaToplamFiyat(sefer, sefer.sofore_odenen_ucret);
       return toplam + toplamFiyat;
     }, 0);
     
     // Şöför giderlerine de %20 KDV ekle
-    const toplamSoforKDV = giderSeferleri.reduce((toplam, sefer) => {
+    const toplamSoforKDV = seferler.reduce((toplam, sefer) => {
       const gider = hesaplaToplamFiyat(sefer, sefer.sofore_odenen_ucret);
       const soforKdv = hesaplaKDV(gider);
       return toplam + soforKdv;
@@ -384,28 +363,21 @@ export async function GET(request: NextRequest) {
         };
       }
       
-      // Gelir hesaplamaları - Tüm seferler dahil (arac_id filtresi YOK)
+      // Gelir hesaplamaları - Tüm seferler dahil
       const temelGelir = hesaplaToplamFiyat(sefer, sefer.sirketten_alinan_ucret);
       const kdv = hesaplaKDV(temelGelir);
       
-      // Gider hesaplamaları - Sadece şirketin araçlarındaki seferler (arac_id filtresi VAR)
-      const sirketAracIds = sirketAracMapping[sefer.sirket_id] || [];
-      const seferAracDahilMi = sefer.arac_id && sirketAracIds.includes(sefer.arac_id);
+      // Gider hesaplamaları - Tüm seferler dahil (araç filtresi kaldırıldı)
+      const giderToplamFiyat = hesaplaToplamFiyat(sefer, sefer.sofore_odenen_ucret);
+      const soforKdv = hesaplaKDV(giderToplamFiyat);
       
-      // Gelir her zaman dahil
+      // Gelir ve gider her zaman dahil
       acc[ay].gelir += temelGelir; // KDV hariç gelir
       acc[ay].kdv += kdv;
+      acc[ay].gider += giderToplamFiyat;
+      acc[ay].soforKdv += soforKdv;
       acc[ay].seferSayisi += 1;
       acc[ay].toplamMT += (sefer.mt || 0);
-      
-      // Gider sadece araç dahilse
-      if (seferAracDahilMi) {
-        const giderToplamFiyat = hesaplaToplamFiyat(sefer, sefer.sofore_odenen_ucret);
-        const soforKdv = hesaplaKDV(giderToplamFiyat);
-        
-        acc[ay].gider += giderToplamFiyat;
-        acc[ay].soforKdv += soforKdv;
-      }
       
       // Tevkifat hesapla - sadece fatura fiyatı varsa
       let seferTevkifat = 0;
